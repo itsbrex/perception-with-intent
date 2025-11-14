@@ -1,49 +1,47 @@
-<div align="center">
+# Perception
 
-# 🔍 Perception
+> **AI-powered news intelligence that cuts through the noise**
 
-**Executive-Level News Intelligence Platform**
+Stop manually checking 50 news sources every morning. Perception monitors everything, filters what matters using 8 specialized Vertex AI agents, and delivers executive-level insights to your dashboard.
 
-[![Google ADK](https://img.shields.io/badge/Google-ADK-4285F4?style=for-the-badge&logo=google-cloud)](https://github.com/google/adk-python)
-[![Vertex AI](https://img.shields.io/badge/Vertex%20AI-Agent%20Engine-4285F4?style=for-the-badge&logo=google-cloud)](https://cloud.google.com/vertex-ai/generative-ai/docs/agents)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue?style=for-the-badge&logo=python)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-Apache--2.0-green?style=for-the-badge)](LICENSE)
-
-[Quick Start](#-quick-start) • [Architecture](#-architecture) • [Deploy](#-deployment) • [Cost](#-cost-reality)
+**Live Demo:** [perception-with-intent.web.app](https://perception-with-intent.web.app)
 
 ---
 
-**Stop manually checking 50 news sources.** Track what matters, see what's coming, and get strategic intelligence delivered to your dashboard.
+## What Is This?
 
-![Demo](https://via.placeholder.com/800x400/1a1a1a/4285F4?text=Perception+Dashboard+Demo)
+Perception is a production example of an AI agent system built on Google Cloud. It demonstrates how to architect, deploy, and operate multi-agent systems for real-world intelligence gathering.
 
-</div>
+This repository contains:
+- 8 specialized AI agents coordinated via A2A Protocol
+- Source-agnostic news ingestion (RSS, APIs, custom connectors)
+- Real-time executive dashboard (Firebase + Firestore)
+- Production deployment infrastructure (Terraform + GitHub Actions)
+- Complete CI/CD pipeline with Workload Identity Federation
+
+**Built by [Intent Solutions IO](https://intentsolutions.io)** — We design and deploy custom AI agent systems for enterprise intelligence.
 
 ---
 
-## 🎯 What Is This?
+## Key Features
 
-Perception is an **AI-powered news intelligence platform** that transforms information overload into actionable insights.
+### Source Agnostic
+Monitor any topic from any source. RSS feeds, proprietary APIs, or custom connectors. No vendor lock-in.
 
-**The Problem:**
-- Executives waste 2+ hours daily scanning news sources
-- Important stories get buried in noise
-- Pattern recognition happens too late
-- No strategic synthesis, just raw feeds
+### AI-Powered Analysis
+Gemini 2.0 Flash generates summaries, extracts insights, and identifies strategic implications automatically.
 
-**The Solution:**
-Perception monitors everything, filters intelligently using AI, and delivers insights that actually matter—all automatically.
+### Executive Dashboard
+Real-time intelligence delivered through a clean, professional interface. Filter by relevance, topic, or priority.
 
-### What Makes It Different
+### Daily Executive Briefs
+Automated summaries highlight patterns, emerging trends, and strategic implications across all monitored topics.
 
-|  | Traditional RSS Readers | AI Summarizers | **Perception** |
-|---|---|---|---|
-| Multi-source monitoring | ✅ | ✅ | ✅ |
-| AI-powered filtering | ❌ | ✅ | ✅ |
-| Strategic synthesis | ❌ | ❌ | ✅ |
-| Executive dashboard | ❌ | ❌ | ✅ |
-| Customizable topics | ❌ | ❌ | ✅ |
-| Cost per month | Free | $20-50 | **~$60** |
+### Smart Alerts
+Configurable alerts notify you when high-priority signals emerge. Slack, email, or webhook integration.
+
+### Enterprise Security
+Built on Google Cloud with Workload Identity Federation, encrypted storage, and comprehensive audit logging.
 
 ---
 
@@ -522,18 +520,48 @@ Built on:
 
 ---
 
-## 📄 License
+## Who Is This For?
 
-Apache License 2.0 - see [LICENSE](LICENSE) for details.
+**Executives** who need strategic intelligence without manual research
+
+**Intelligence Teams** looking to automate competitive monitoring
+
+**Operations Leaders** tracking market signals and trends
+
+**Engineering Teams** evaluating Google ADK for production use
+
+**Consultancies** building custom intelligence systems for clients
 
 ---
 
-<div align="center">
+## Contributing
 
-**Perception — Because manually checking news is for interns.**
+This is a production showcase repository. For custom deployments or modifications:
 
-[Get Started](#-quick-start) • [Documentation](CLAUDE.md) • [Report Bug](https://github.com/[your-username]/perception/issues)
+**[Contact Intent Solutions IO](https://intentsolutions.io)**
 
-Made with ☕ and AI by [Jeremy Longshore](https://jeremylongshore.com)
+We build and deploy custom AI agent systems for enterprise intelligence needs.
 
-</div>
+---
+
+## License
+
+MIT License - See [LICENSE](LICENSE) for details
+
+---
+
+## About Intent Solutions IO
+
+We design and deploy custom AI agent systems for organizations that need strategic intelligence without the noise.
+
+**Specialties:**
+- Multi-agent system architecture
+- Google ADK + Vertex AI Agent Engine
+- Production-grade AI deployments
+- Enterprise intelligence platforms
+
+**Learn More:** [intentsolutions.io](https://intentsolutions.io)
+
+---
+
+**Powered by Google Cloud Vertex AI** • © 2025 Intent Solutions IO
