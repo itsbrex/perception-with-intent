@@ -1,0 +1,468 @@
+# RSS Feed Sources for Perception News Intelligence
+# Generated: 2025-12-29
+# Total: 89 verified active feeds across 19 categories
+# Source: Comprehensive feed testing + GitHub RSS collections
+
+sources:
+  # ===== SPORTS (4 feeds) =====
+  - name: "CBS Sports"
+    url: "https://www.cbssports.com/rss/headlines"
+    category: "sports"
+    active: true
+
+  - name: "Sporting News"
+    url: "https://www.sportingnews.com/us/rss"
+    category: "sports"
+    active: true
+
+  - name: "The Athletic"
+    url: "https://theathletic.com/feeds/rss/news/"
+    category: "sports"
+    active: true
+
+  - name: "Yahoo Sports"
+    url: "https://sports.yahoo.com/rss/"
+    category: "sports"
+    active: true
+
+  # ===== AUTOMOTIVE - NEWS (6 feeds) =====
+  - name: "The Drive"
+    url: "https://www.thedrive.com/feed"
+    category: "automotive"
+    active: true
+
+  - name: "Car and Driver"
+    url: "https://www.caranddriver.com/rss/all.xml"
+    category: "automotive"
+    active: true
+
+  - name: "Motor1"
+    url: "https://www.motor1.com/rss/news/all/"
+    category: "automotive"
+    active: true
+
+  - name: "Jalopnik"
+    url: "https://jalopnik.com/rss"
+    category: "automotive"
+    active: true
+
+  - name: "Edmunds"
+    url: "https://www.edmunds.com/feeds/rss/articles.xml"
+    category: "automotive"
+    active: true
+
+  - name: "Road & Track"
+    url: "https://www.roadandtrack.com/rss/all.xml"
+    category: "automotive"
+    active: true
+
+  # ===== AUTOMOTIVE - ELECTRIC/EV (4 feeds) =====
+  - name: "InsideEVs"
+    url: "https://insideevs.com/rss/news/all/"
+    category: "ev"
+    active: true
+
+  - name: "CleanTechnica"
+    url: "https://cleantechnica.com/feed/"
+    category: "ev"
+    active: true
+
+  - name: "Electrek"
+    url: "https://electrek.co/feed/"
+    category: "ev"
+    active: true
+
+  - name: "Teslarati"
+    url: "https://www.teslarati.com/feed/"
+    category: "ev"
+    active: true
+
+  # ===== AUTOMOTIVE - TRUCKS/FLEET (5 feeds) =====
+  - name: "Transport Topics"
+    url: "https://www.ttnews.com/rss.xml"
+    category: "trucking"
+    active: true
+
+  - name: "HDT Trucking"
+    url: "https://www.truckinginfo.com/rss"
+    category: "trucking"
+    active: true
+
+  - name: "Truck News"
+    url: "https://www.trucknews.com/feed/"
+    category: "trucking"
+    active: true
+
+  - name: "Overdrive"
+    url: "https://www.overdriveonline.com/feed/"
+    category: "trucking"
+    active: true
+
+  - name: "CCJ Digital"
+    url: "https://www.ccjdigital.com/feed/"
+    category: "trucking"
+    active: true
+
+  # ===== HEAVY EQUIPMENT (5 feeds) =====
+  - name: "Construction Dive"
+    url: "https://www.constructiondive.com/feeds/news/"
+    category: "heavy_equipment"
+    active: true
+
+  - name: "ENR Construction"
+    url: "https://www.enr.com/rss/articles"
+    category: "heavy_equipment"
+    active: true
+
+  - name: "Equipment World"
+    url: "https://www.equipmentworld.com/feed/"
+    category: "heavy_equipment"
+    active: true
+
+  - name: "Compact Equipment"
+    url: "https://compactequip.com/feed/"
+    category: "heavy_equipment"
+    active: true
+
+  - name: "Equipment Journal"
+    url: "https://www.equipmentjournal.com/feed/"
+    category: "heavy_equipment"
+    active: true
+
+  # ===== AI/ML RESEARCH (3 feeds) =====
+  - name: "MIT AI News"
+    url: "https://news.mit.edu/rss/topic/artificial-intelligence2"
+    category: "ai"
+    active: true
+
+  - name: "DeepMind Blog"
+    url: "https://deepmind.com/blog/feed/basic/"
+    category: "ai"
+    active: true
+
+  - name: "Amazon Science"
+    url: "https://www.amazon.science/index.rss"
+    category: "ai"
+    active: true
+
+  # ===== TECH NEWS (10 feeds) =====
+  - name: "TechCrunch"
+    url: "https://techcrunch.com/feed/"
+    category: "tech"
+    active: true
+
+  - name: "The Verge"
+    url: "https://www.theverge.com/rss/index.xml"
+    category: "tech"
+    active: true
+
+  - name: "Hacker News"
+    url: "https://news.ycombinator.com/rss"
+    category: "tech"
+    active: true
+
+  - name: "Ars Technica"
+    url: "https://feeds.arstechnica.com/arstechnica/index"
+    category: "tech"
+    active: true
+
+  - name: "Wired"
+    url: "https://www.wired.com/feed/rss"
+    category: "tech"
+    active: true
+
+  - name: "CNET"
+    url: "https://www.cnet.com/rss/news/"
+    category: "tech"
+    active: true
+
+  - name: "ZDNet"
+    url: "https://www.zdnet.com/news/rss.xml"
+    category: "tech"
+    active: true
+
+  - name: "VentureBeat"
+    url: "https://venturebeat.com/feed/"
+    category: "tech"
+    active: true
+
+  - name: "Tom's Hardware"
+    url: "https://www.tomshardware.com/feeds/all"
+    category: "tech"
+    active: true
+
+  - name: "Engadget"
+    url: "https://www.engadget.com/rss.xml"
+    category: "tech"
+    active: true
+
+  # ===== ENGINEERING BLOGS (7 feeds) =====
+  - name: "Stripe Blog"
+    url: "https://stripe.com/blog/feed.rss"
+    category: "engineering"
+    active: true
+
+  - name: "Spotify Engineering"
+    url: "https://engineering.atspotify.com/feed/"
+    category: "engineering"
+    active: true
+
+  - name: "Discord Blog"
+    url: "https://discord.com/blog/rss.xml"
+    category: "engineering"
+    active: true
+
+  - name: "Slack Engineering"
+    url: "https://slack.engineering/feed/"
+    category: "engineering"
+    active: true
+
+  - name: "GitHub Blog"
+    url: "https://github.blog/feed/"
+    category: "engineering"
+    active: true
+
+  - name: "Cloudflare Blog"
+    url: "https://blog.cloudflare.com/rss/"
+    category: "engineering"
+    active: true
+
+  - name: "Dropbox Tech"
+    url: "https://dropbox.tech/feed"
+    category: "engineering"
+    active: true
+
+  # ===== SECURITY/INFOSEC (4 feeds) =====
+  - name: "Schneier on Security"
+    url: "https://www.schneier.com/blog/atom.xml"
+    category: "security"
+    active: true
+
+  - name: "Krebs on Security"
+    url: "https://krebsonsecurity.com/feed/"
+    category: "security"
+    active: true
+
+  - name: "The Hacker News"
+    url: "https://feeds.feedburner.com/TheHackersNews"
+    category: "security"
+    active: true
+
+  - name: "Dark Reading"
+    url: "https://www.darkreading.com/rss.xml"
+    category: "security"
+    active: true
+
+  # ===== FINANCE/BUSINESS (5 feeds) =====
+  - name: "CNBC"
+    url: "https://www.cnbc.com/id/100003114/device/rss/rss.html"
+    category: "business"
+    active: true
+
+  - name: "Bloomberg"
+    url: "https://feeds.bloomberg.com/markets/news.rss"
+    category: "business"
+    active: true
+
+  - name: "Seeking Alpha"
+    url: "https://seekingalpha.com/feed.xml"
+    category: "business"
+    active: true
+
+  - name: "Financial Times"
+    url: "https://www.ft.com/?format=rss"
+    category: "business"
+    active: true
+
+  - name: "MarketWatch"
+    url: "https://feeds.marketwatch.com/marketwatch/topstories/"
+    category: "business"
+    active: true
+
+  # ===== CRYPTO/WEB3 (6 feeds) =====
+  - name: "Cointelegraph"
+    url: "https://cointelegraph.com/rss"
+    category: "crypto"
+    active: true
+
+  - name: "Decrypt"
+    url: "https://decrypt.co/feed"
+    category: "crypto"
+    active: true
+
+  - name: "The Block"
+    url: "https://www.theblock.co/rss.xml"
+    category: "crypto"
+    active: true
+
+  - name: "Bitcoin Magazine"
+    url: "https://bitcoinmagazine.com/feed"
+    category: "crypto"
+    active: true
+
+  - name: "CoinDesk"
+    url: "https://www.coindesk.com/arc/outboundfeeds/rss/"
+    category: "crypto"
+    active: true
+
+  - name: "Ethereum Blog"
+    url: "https://blog.ethereum.org/feed.xml"
+    category: "crypto"
+    active: true
+
+  # ===== WORLD NEWS (5 feeds) =====
+  - name: "NPR News"
+    url: "https://feeds.npr.org/1001/rss.xml"
+    category: "world"
+    active: true
+
+  - name: "BBC World"
+    url: "https://feeds.bbci.co.uk/news/world/rss.xml"
+    category: "world"
+    active: true
+
+  - name: "Al Jazeera"
+    url: "https://www.aljazeera.com/xml/rss/all.xml"
+    category: "world"
+    active: true
+
+  - name: "Guardian World"
+    url: "https://www.theguardian.com/world/rss"
+    category: "world"
+    active: true
+
+  - name: "NYT World"
+    url: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+    category: "world"
+    active: true
+
+  # ===== SCIENCE (7 feeds) =====
+  - name: "Science Magazine"
+    url: "https://www.science.org/rss/news_current.xml"
+    category: "science"
+    active: true
+
+  - name: "New Scientist"
+    url: "https://www.newscientist.com/feed/home/"
+    category: "science"
+    active: true
+
+  - name: "Nature"
+    url: "https://www.nature.com/nature.rss"
+    category: "science"
+    active: true
+
+  - name: "Science Daily"
+    url: "https://www.sciencedaily.com/rss/all.xml"
+    category: "science"
+    active: true
+
+  - name: "Quanta Magazine"
+    url: "https://www.quantamagazine.org/feed/"
+    category: "science"
+    active: true
+
+  - name: "MIT News"
+    url: "https://news.mit.edu/rss/research"
+    category: "science"
+    active: true
+
+  - name: "NASA"
+    url: "https://www.nasa.gov/rss/dyn/breaking_news.rss"
+    category: "science"
+    active: true
+
+  # ===== REPAIR - ELECTRONICS (6 feeds) =====
+  - name: "Arduino Blog"
+    url: "https://blog.arduino.cc/feed/"
+    category: "repair_electronics"
+    active: true
+
+  - name: "Make Magazine"
+    url: "https://makezine.com/feed/"
+    category: "repair_electronics"
+    active: true
+
+  - name: "Hackaday"
+    url: "https://hackaday.com/feed/"
+    category: "repair_electronics"
+    active: true
+
+  - name: "iFixit"
+    url: "https://www.ifixit.com/News/rss"
+    category: "repair_electronics"
+    active: true
+
+  - name: "Electronics For You"
+    url: "https://www.electronicsforu.com/feed"
+    category: "repair_electronics"
+    active: true
+
+  - name: "Adafruit"
+    url: "https://blog.adafruit.com/feed/"
+    category: "repair_electronics"
+    active: true
+
+  # ===== REPAIR - MARINE/BOATS (2 feeds) =====
+  - name: "Ship Technology"
+    url: "https://www.ship-technology.com/feed/"
+    category: "repair_marine"
+    active: true
+
+  - name: "Marine Log"
+    url: "https://www.marinelog.com/feed/"
+    category: "repair_marine"
+    active: true
+
+  # ===== REPAIR - RV/MOTORHOME (4 feeds) =====
+  - name: "Technomadia"
+    url: "https://www.technomadia.com/feed/"
+    category: "repair_rv"
+    active: true
+
+  - name: "RV Life"
+    url: "https://rvlife.com/feed/"
+    category: "repair_rv"
+    active: true
+
+  - name: "Camping World"
+    url: "https://blog.campingworld.com/feed/"
+    category: "repair_rv"
+    active: true
+
+  - name: "RV Business"
+    url: "https://rvbusiness.com/feed/"
+    category: "repair_rv"
+    active: true
+
+  # ===== REPAIR - MOTORCYCLE (3 feeds) =====
+  - name: "Ultimate Motorcycling"
+    url: "https://ultimatemotorcycling.com/feed/"
+    category: "repair_motorcycle"
+    active: true
+
+  - name: "RideApart"
+    url: "https://www.rideapart.com/rss/articles/all/"
+    category: "repair_motorcycle"
+    active: true
+
+  - name: "Bike EXIF"
+    url: "https://www.bikeexif.com/feed"
+    category: "repair_motorcycle"
+    active: true
+
+  # ===== REPAIR - AGRICULTURAL (3 feeds) =====
+  - name: "Farm Journal"
+    url: "https://www.farmjournal.com/feed/"
+    category: "repair_agricultural"
+    active: true
+
+  - name: "AgDaily"
+    url: "https://www.agdaily.com/feed/"
+    category: "repair_agricultural"
+    active: true
+
+  - name: "Brownfield Ag News"
+    url: "https://brownfieldagnews.com/feed/"
+    category: "repair_agricultural"
+    active: true
