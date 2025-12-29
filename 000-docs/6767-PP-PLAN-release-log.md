@@ -16,6 +16,46 @@ This document tracks all major releases, deployments, and phase completions for 
 
 ## Release History
 
+### v0.4.0 – Feed Expansion + Terminal UI (2025-12-29)
+
+**Phase:** Content Foundation + Developer Experience
+
+**Summary:**
+
+Massive expansion of RSS feed sources from 15 to 89 verified active feeds across 19 categories. Added cyberpunk-themed terminal UI for monitoring and management. Established feed testing framework for ongoing feed health validation.
+
+**Key Achievements:**
+- ✅ **89 Verified Active Feeds:** Expanded from 15 generic feeds to 89 tested, active sources
+- ✅ **19 Content Categories:** Sports, automotive, EV, trucking, heavy equipment, AI, tech, engineering, security, business, crypto, world, science, repair (5 subcategories)
+- ✅ **Cyberpunk Terminal UI:** Rich-based dashboard with synthwave aesthetic
+- ✅ **Feed Testing Framework:** Concurrent testing with JSON output and classification
+- ✅ **GitHub RSS Reference:** Documented 3,200+ curated feeds from major repositories
+- ✅ **rssatoms Integration Epic:** 3-phase plan with 7 beads subtasks
+
+**Feed Categories:**
+| Category | Count | Examples |
+|----------|-------|----------|
+| Tech News | 10 | TechCrunch, Verge, Ars Technica, Wired |
+| Engineering | 7 | Stripe, Spotify, Discord, GitHub, Cloudflare |
+| Science | 7 | Nature, Science, NASA, MIT, Quanta |
+| Automotive | 6 | Car and Driver, Motor1, Jalopnik |
+| Crypto | 6 | CoinDesk, Decrypt, Ethereum Blog |
+| Others | 53 | Sports, Business, Security, Repair, etc. |
+
+**New Files:**
+- `perception_tui.py` - Terminal dashboard with cyberpunk theme
+- `perception` - CLI launcher script
+- `feed-testing/test_all_feeds.py` - Feed validation framework
+- `feed-testing/active_feeds.json` - Verified active feeds
+- `000-docs/6767-REF-github-rss-feed-sources.md` - RSS repository reference
+- `000-docs/6767-PP-PLAN-rssatoms-discord-epic.md` - Discord integration epic
+
+**Dependencies Added:**
+- `rich>=13.9.0` - Terminal formatting
+- `typer>=0.12.0` - CLI framework
+
+---
+
 ### v0.3.0 – MCP + Agent Engine E2E Ingestion (2025-11-15)
 
 **Phase:** E2E (Agent Engine Deployment + E2E Ingestion Validation)
@@ -157,7 +197,8 @@ Each release links to a corresponding After Action Report (AAR) with detailed te
 
 | Version | AAR | Phase | Status |
 |---------|-----|-------|--------|
-| v0.3.0 | [041-AA-REPT-phase-E2E-agent-engine-deployment.md](041-AA-REPT-phase-E2E-agent-engine-deployment.md) | E2E (Agent Engine) | In Progress |
+| v0.4.0 | N/A | Feed Expansion + TUI | Complete |
+| v0.3.0 | [041-AA-REPT-phase-E2E-agent-engine-deployment.md](041-AA-REPT-phase-E2E-agent-engine-deployment.md) | E2E (Agent Engine) | Complete |
 | v0.2.0 | N/A | E2E (Multi-Agent) | Complete |
 | v0.1.0 | N/A | Foundation | Complete |
 
@@ -167,6 +208,7 @@ Each release links to a corresponding After Action Report (AAR) with detailed te
 
 | Date | Version | Milestone | Environment |
 |------|---------|-----------|-------------|
+| 2025-12-29 | v0.4.0 | 89 RSS feeds + Terminal UI | Development |
 | 2025-11-15 | v0.3.0 | MCP deployed to Cloud Run | Production MCP |
 | 2025-11-15 | v0.3.0 | Agent Engine deployment script ready | Staging (pending) |
 | 2025-11-14 | v0.2.0 | E2E ingestion pipeline complete | Development |
@@ -176,15 +218,16 @@ Each release links to a corresponding After Action Report (AAR) with detailed te
 
 ## Future Releases (Planned)
 
-### v0.4.0 – Dashboard Integration + Live Data (TBD)
+### v0.5.0 – Discord Integration + Dashboard Wiring (TBD)
 
 **Planned Features:**
-- Wire dashboard to Firestore collections
-- Display real briefs on homepage
-- Article lists per section
-- Live ingestion status
+- Discord server + webhooks for demo
+- send_discord_alert MCP tool
+- Wire Agent 7 to Discord delivery
+- Dashboard wired to Firestore briefs/articles
+- Live ingestion status display
 
-### v0.5.0 – Section Editors Rollout (TBD)
+### v0.6.0 – Section Editors Rollout (TBD)
 
 **Planned Features:**
 - Agent 9: Business Desk Editor
@@ -204,6 +247,6 @@ Each release links to a corresponding After Action Report (AAR) with detailed te
 
 ---
 
-**Last Updated:** 2025-11-15
+**Last Updated:** 2025-12-29
 **Maintained By:** Perception Development Team
-**Next Release:** v0.4.0 (Dashboard Integration)
+**Next Release:** v0.5.0 (Discord Integration + Dashboard Wiring)

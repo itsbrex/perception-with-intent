@@ -7,11 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2025-12-29
+
 ### Added
-- Context handoff document for session continuity
-- Comprehensive observability stack documentation
-- Agent Engine deployment guide
-- E2E ingestion trigger script
+- **Massive RSS Feed Expansion** (15 → 89 verified active feeds)
+  - 19 categories: sports, automotive, EV, trucking, heavy equipment, AI, tech, engineering, security, business, crypto, world, science, repair (electronics/marine/RV/motorcycle/agricultural)
+  - All feeds tested and verified active with feedparser
+  - GitHub RSS repository reference document (3,200+ curated feeds)
+- **Cyberpunk Terminal UI** (`perception_tui.py`)
+  - Synthwave/cyberpunk aesthetic with cyan/magenta/purple palette
+  - Dashboard view with feeds table, status panel, metrics, category chart
+  - Commands: `./perception [dashboard|feeds|test|status]`
+  - Rich library integration for styled terminal output
+- **Feed Testing Framework** (`feed-testing/`)
+  - Comprehensive test script for validating RSS feeds
+  - JSON output with active/inactive/stale classification
+  - Concurrent testing with ThreadPoolExecutor
+- **rssatoms Integration Epic** (`6767-PP-PLAN-rssatoms-discord-epic.md`)
+  - 3-phase plan for feed integration + Discord demo
+  - 7 beads subtasks created with dependencies
+- **Context handoff document** for session continuity
+- **Comprehensive observability stack documentation**
+- **Agent Engine deployment guide**
+- **E2E ingestion trigger script**
+
+### Changed
+- RSS sources config now organized by category with clear sections
+- Added `rich>=13.9.0` and `typer>=0.12.0` to requirements.txt
+
+### Infrastructure
+- **Feed Sources:** 89 active feeds across 19 categories
+- **TUI:** Python Rich-based terminal dashboard
+- **Testing:** Feed validation framework operational
 
 ## [0.3.0] - 2025-11-15
 
