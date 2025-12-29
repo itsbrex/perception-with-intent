@@ -1,7 +1,7 @@
 # RSS Feed Sources for Perception News Intelligence
 # Generated: 2025-12-29
-# Total: 89 verified active feeds across 19 categories
-# Source: Comprehensive feed testing + GitHub RSS collections
+# Total: 128 verified active feeds across 22 categories
+# Source: Comprehensive feed testing + GitHub RSS collections + Brex Top 100 SaaS
 
 sources:
   # ===== SPORTS (4 feeds) =====
@@ -465,4 +465,203 @@ sources:
   - name: "Brownfield Ag News"
     url: "https://brownfieldagnews.com/feed/"
     category: "repair_agricultural"
+    active: true
+
+  # ===== SAAS/DEVELOPER TOOLS (24 feeds) =====
+  # From Brex Top 100 Fastest-Growing SaaS Companies 2024
+  - name: "Vercel"
+    url: "https://vercel.com/atom"
+    category: "saas_dev"
+    active: true
+
+  - name: "Next.js"
+    url: "https://nextjs.org/feed.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Supabase"
+    url: "https://supabase.com/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "PostHog"
+    url: "https://posthog.com/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Sentry"
+    url: "https://blog.sentry.io/feed.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "LangChain"
+    url: "https://blog.langchain.dev/rss/"
+    category: "saas_dev"
+    active: true
+
+  - name: "Auth0"
+    url: "https://auth0.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Twilio"
+    url: "https://www.twilio.com/blog/feed"
+    category: "saas_dev"
+    active: true
+
+  - name: "Datadog"
+    url: "https://www.datadoghq.com/blog/index.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "MongoDB"
+    url: "https://www.mongodb.com/blog/rss"
+    category: "saas_dev"
+    active: true
+
+  - name: "Airbyte"
+    url: "https://airbyte.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "dbt Labs"
+    url: "https://www.getdbt.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "PlanetScale"
+    url: "https://planetscale.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Neon"
+    url: "https://neon.tech/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Webflow"
+    url: "https://webflow.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Figma"
+    url: "https://www.figma.com/blog/feed/atom.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Loom"
+    url: "https://www.loom.com/blog/feed"
+    category: "saas_dev"
+    active: true
+
+  - name: "HubSpot Marketing"
+    url: "https://blog.hubspot.com/marketing/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Nylas"
+    url: "https://www.nylas.com/blog/feed/"
+    category: "saas_dev"
+    active: true
+
+  - name: "WorkOS"
+    url: "https://workos.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Dagster"
+    url: "https://dagster.io/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Weaviate"
+    url: "https://weaviate.io/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Algolia"
+    url: "https://blog.algolia.com/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "DigitalOcean Tutorials"
+    url: "https://www.digitalocean.com/community/tutorials/feed"
+    category: "saas_dev"
+    active: true
+
+  # ===== AI/ML COMPANIES (9 feeds) =====
+  - name: "OpenAI"
+    url: "https://openai.com/blog/rss.xml"
+    category: "ai_company"
+    active: true
+
+  - name: "Anthropic News"
+    url: "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml"
+    category: "ai_company"
+    active: true
+
+  - name: "Hugging Face"
+    url: "https://huggingface.co/blog/feed.xml"
+    category: "ai_company"
+    active: true
+
+  - name: "Together AI"
+    url: "https://www.together.ai/blog/rss.xml"
+    category: "ai_company"
+    active: true
+
+  - name: "Cohere"
+    url: "https://txt.cohere.ai/rss/"
+    category: "ai_company"
+    active: true
+
+  # ===== INFRASTRUCTURE/DEVOPS (8 feeds) =====
+  - name: "Docker"
+    url: "https://www.docker.com/blog/feed/"
+    category: "infrastructure"
+    active: true
+
+  - name: "Kubernetes"
+    url: "https://kubernetes.io/feed.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "HashiCorp"
+    url: "https://www.hashicorp.com/blog/feed.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Pulumi"
+    url: "https://www.pulumi.com/blog/rss.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Grafana"
+    url: "https://grafana.com/blog/index.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Prometheus"
+    url: "https://prometheus.io/blog/feed.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Elastic"
+    url: "https://www.elastic.co/blog/feed"
+    category: "infrastructure"
+    active: true
+
+  - name: "Redis"
+    url: "https://redis.com/blog/feed/"
+    category: "infrastructure"
+    active: true
+
+  - name: "GitLab"
+    url: "https://about.gitlab.com/atom.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Linode"
+    url: "https://www.linode.com/blog/feed/"
+    category: "infrastructure"
     active: true
