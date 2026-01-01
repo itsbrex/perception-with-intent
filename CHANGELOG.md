@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2025-12-31
+
+### Added
+- **Comprehensive Test Suite** (4,800+ passing tests)
+  - Unit tests: RSS parsing, factories, data validation, utilities
+  - API tests: MCP service endpoints
+  - Agent tests: Orchestrator tools (Agent 0)
+  - Security tests: XSS, SQL injection, path traversal detection
+  - TUI tests: Terminal UI components (56 tests)
+  - E2E tests: Playwright headless browser (35 tests)
+  - Integration tests: Full pipeline validation
+  - Parametrized tests: Exhaustive coverage (3,000+)
+  - Bulk scenario tests: Large-scale validation (1,500+)
+- **Test Infrastructure**
+  - `pytest.ini`: Test configuration with markers
+  - `requirements-test.txt`: Test dependencies (pytest, playwright, faker, hypothesis)
+  - `tests/conftest.py`: Shared fixtures and configuration
+  - `tests/factories/`: Test data factories (article, topic, RSS, agent, summary)
+- **Production Packaging**
+  - `pyproject.toml`: Modern Python packaging with all dependencies and tool configs
+- **Test Runner Scripts**
+  - `scripts/run_all_tests.sh`: Batch test execution for CI/CD
+  - `scripts/run_tests.sh`: Quick test runner with multiple modes
+
+### Changed
+- CI/CD workflow enhanced with dedicated test, security, and terraform jobs
+- Python version updated to 3.12 in CI pipeline
+- Added pip caching for faster CI builds
+
+### Infrastructure
+- **Test Coverage:** 4,800+ tests across 37 test files
+- **CI/CD:** 4 parallel jobs (lint, test, security, terraform)
+- **Security:** Automated vulnerability scanning with safety
+
 ## [0.4.0] - 2025-12-29
 
 ### Added
