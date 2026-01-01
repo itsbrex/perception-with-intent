@@ -1,0 +1,171 @@
+[project]
+name = "perception"
+version = "0.4.0"
+description = "AI News Intelligence Platform - Next-gen news tracking and analysis"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Jeremy Longshore"}
+]
+keywords = ["ai", "news", "intelligence", "rss", "agents", "vertex-ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary",
+]
+
+dependencies = [
+    "google-genai[adk]>=0.6.0",
+    "google-cloud-aiplatform[adk,agent_engines]>=1.112.0",
+    "a2a-sdk>=0.3.4",
+    "google-cloud-firestore>=2.18.0",
+    "google-cloud-logging>=3.11.0",
+    "google-cloud-trace>=1.13.5",
+    "uvicorn[standard]>=0.30.0",
+    "google-cloud-discoveryengine>=0.15.0",
+    "cloudpickle>=3.0.0",
+    "httpx>=0.27.0",
+    "aiohttp>=3.10.0",
+    "pydantic>=2.9.0",
+    "python-dateutil>=2.9.0",
+    "pytz>=2024.1",
+    "feedparser>=6.0.11",
+    "beautifulsoup4>=4.12.3",
+    "lxml>=5.3.0",
+    "pyyaml>=6.0.2",
+    "python-dotenv>=1.0.1",
+    "opentelemetry-api>=1.27.0",
+    "opentelemetry-sdk>=1.27.0",
+    "opentelemetry-exporter-gcp-trace>=1.7.0",
+    "opentelemetry-instrumentation-httpx>=0.48b0",
+    "rich>=13.9.0",
+    "typer>=0.12.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=5.0.0",
+    "playwright>=1.49.0",
+    "pytest-playwright>=0.5.2",
+    "factory-boy>=3.3.0",
+    "faker>=30.0.0",
+    "hypothesis>=6.112.0",
+    "respx>=0.22.0",
+    "black>=24.8.0",
+    "flake8>=7.1.0",
+    "mypy>=1.11.0",
+    "ruff>=0.8.0",
+]
+
+[project.scripts]
+perception = "perception_app.main:main"
+perception-tui = "perception_tui:main"
+
+[project.urls]
+Homepage = "https://perception-with-intent.web.app"
+Repository = "https://github.com/jeremylongshore/perception"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["perception_app*", "app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"
+markers = [
+    "unit: Unit tests (fast, no external dependencies)",
+    "integration: Integration tests (may need services)",
+    "e2e: End-to-end browser tests (needs playwright)",
+    "tui: Terminal UI tests",
+    "api: API endpoint tests",
+    "mcp: MCP service tests",
+    "agent: Agent system tests",
+    "security: Security validation tests",
+    "smoke: Quick smoke tests",
+    "slow: Slow tests",
+]
+
+[tool.coverage.run]
+source = ["perception_app", "app"]
+branch = true
+omit = [
+    "tests/*",
+    "**/__pycache__/*",
+    ".venv/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+]
+fail_under = 60
+show_missing = true
+
+[tool.black]
+line-length = 120
+target-version = ['py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.venv
+    | build
+    | dist
+    | node_modules
+)/
+'''
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "S",   # flake8-bandit (security)
+]
+ignore = [
+    "E501",  # line too long (handled by black)
+    "S101",  # assert used
+    "B008",  # function calls in default args
+]
+exclude = [
+    ".git",
+    ".venv",
+    "build",
+    "dist",
+]
+
+[tool.ruff.per-file-ignores]
+"tests/*" = ["S101", "S105", "S106"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+exclude = [
+    ".venv",
+    "build",
+    "dist",
+]
