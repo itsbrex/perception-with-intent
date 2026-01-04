@@ -14,7 +14,8 @@ permissions:
   id-token: write  # Required for WIF
 
 jobs:
-  deploy-agents:
+  deploy-agent-engine:
+    name: Deploy Agent Engine
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.confirm == 'deploy' }}
     environment: production
@@ -23,14 +24,12 @@ jobs:
       - name: Print Deployment Targets
         run: |
           echo "=========================================="
-          echo "Vertex AI Agent Engine Deployment Targets"
+          echo "Vertex AI Agent Engine Deployment"
           echo "=========================================="
           echo "Project ID:       perception-with-intent"
           echo "Region:           us-central1"
           echo "Staging Bucket:   gs://perception-staging"
-          echo "Agent Count:      2 (Agent 0, Agent 1)"
-          echo "Agent 0 Dir:      perception_app/perception_agent/agents/agent_0_orchestrator"
-          echo "Agent 1 Dir:      perception_app/perception_agent/agents/agent_1_source_harvester"
+          echo "Agent Dir:        perception_app/perception_agent/agents/agent_0_orchestrator"
           echo "=========================================="
 
       - name: Checkout code
@@ -41,57 +40,41 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
+      - name: Install ADK CLI
         run: |
-          pip install -r requirements.txt
-          pip install google-adk
+          pip install --upgrade pip
+          pip install 'google-adk>=1.15.1'
+          adk --version
 
-      - name: Authenticate to Google Cloud (WIF)
+      - name: Authenticate to GCP (Workload Identity Federation)
         uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
-          token_format: 'access_token'
-          access_token_lifetime: '3600s'
-          create_credentials_file: true
-          export_environment_variables: true
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Configure Docker for Artifact Registry
+      - name: Verify authentication
         run: |
-          gcloud auth configure-docker us-central1-docker.pkg.dev
+          gcloud auth list
+          gcloud config set project perception-with-intent
+          gcloud config list project
 
-      - name: Deploy Agent 0 (Root Orchestrator)
+      - name: Deploy to Agent Engine
         run: |
-          set -o pipefail
-          output=$(adk deploy agent_engine \
-            --project=perception-with-intent \
-            --region=us-central1 \
-            --staging_bucket=gs://perception-staging \
-            --display_name="Perception Root Orchestrator" \
-            --trace_to_cloud \
-            perception_app/perception_agent/agents/agent_0_orchestrator 2>&1 | tee /dev/stderr)
-          if echo "$output" | grep -q "Deploy failed:"; then
-            echo "::error::Agent Engine deployment failed"
-            exit 1
-          fi
+          echo "Deploying Perception to Vertex AI Agent Engine..."
+          echo "  Project: perception-with-intent"
+          echo "  Region: us-central1"
+          echo "  Agent: perception_app/perception_agent/agents/agent_0_orchestrator"
+          echo ""
 
-      - name: Deploy Agent 1 (Source Harvester)
-        run: |
-          set -o pipefail
-          output=$(adk deploy agent_engine \
-            --project=perception-with-intent \
-            --region=us-central1 \
-            --staging_bucket=gs://perception-staging \
-            --display_name="Perception Source Harvester" \
-            --trace_to_cloud \
-            perception_app/perception_agent/agents/agent_1_source_harvester 2>&1 | tee /dev/stderr)
-          if echo "$output" | grep -q "Deploy failed:"; then
-            echo "::error::Agent Engine deployment failed"
-            exit 1
-          fi
+          adk deploy agent_engine perception_app/perception_agent/agents/agent_0_orchestrator \
+            --project "perception-with-intent" \
+            --region "us-central1" \
+            --staging_bucket "gs://perception-staging" \
+            --display_name "Perception Orchestrator" \
+            --trace_to_cloud
 
       - name: Deployment Summary
         run: |
