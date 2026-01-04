@@ -1,9 +1,9 @@
 # Perception - AI News Intelligence Platform
 # Terraform Variables for Development Environment
 
-project_id  = "perception-with-intent"
-billing_id  = "01B257-163362-FC016A"
-region      = "us-central1"
+project_id = "perception-with-intent"
+billing_id = "01B257-163362-FC016A"
+region     = "us-central1"
 
 # Artifact Registry
 repo_name            = "perception-agents"
@@ -16,9 +16,9 @@ service_account_id           = "perception-agent-runner"
 service_account_display_name = "Perception Agent Runner"
 
 # Secret Manager
-create_secret             = true
-secret_id                 = "perception-agent-config"
-secret_replica_locations  = ["us-central1"]
+create_secret            = true
+secret_id                = "perception-agent-config"
+secret_replica_locations = ["us-central1"]
 secret_labels = {
   environment = "dev"
   project     = "perception"
