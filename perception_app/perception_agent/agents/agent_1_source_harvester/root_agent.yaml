@@ -15,5 +15,6 @@ instruction: |
 
   You do NOT perform relevance filtering or ranking. Your only job is to fetch as much valid content as possible.
 
-tools:
-  - name: agent_1_tools
+# Note: Tools temporarily disabled for initial Agent Engine deployment test
+# tools:
+#   - name: agent_1_tools

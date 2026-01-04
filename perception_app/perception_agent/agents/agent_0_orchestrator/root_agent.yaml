@@ -26,15 +26,18 @@ instruction: |
   Note: Technology Desk Editor is the first vertical section editor. In future phases,
   additional section editors (Business Desk, Politics Desk, etc.) will be added.
 
-tools:
-  - name: agent_0_tools
+# Note: Tools temporarily disabled for initial Agent Engine deployment test
+# tools:
+#   - name: agent_0_tools
 
-sub_agents:
-  - config_path: ../agent_1_source_harvester.yaml
-  - config_path: ../agent_2_topic_manager.yaml
-  - config_path: ../agent_3_relevance_ranking.yaml
-  - config_path: ../agent_4_brief_writer.yaml
-  - config_path: ../agent_5_alert_anomaly.yaml
-  - config_path: ../agent_6_validator.yaml
-  - config_path: ../agent_7_storage_manager.yaml
-  - config_path: ../agent_8_tech_editor.yaml
+# Note: Sub-agents temporarily disabled for initial Agent Engine deployment test
+# These will be enabled once the basic deployment pipeline is verified
+# sub_agents:
+#   - config_path: ../agent_1_source_harvester.yaml
+#   - config_path: ../agent_2_topic_manager.yaml
+#   - config_path: ../agent_3_relevance_ranking.yaml
+#   - config_path: ../agent_4_brief_writer.yaml
+#   - config_path: ../agent_5_alert_anomaly.yaml
+#   - config_path: ../agent_6_validator.yaml
+#   - config_path: ../agent_7_storage_manager.yaml
+#   - config_path: ../agent_8_tech_editor.yaml
