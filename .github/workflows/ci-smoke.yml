@@ -34,19 +34,19 @@ jobs:
       - name: Install MCP service dependencies
         run: |
           pip install --upgrade pip
-          pip install -r app/mcp_service/requirements.txt
+          pip install -r perception_app/mcp_service/requirements.txt
 
       - name: Compile MCP service (syntax check)
         run: |
-          python -m compileall app/mcp_service -q
+          python -m compileall perception_app/mcp_service -q
 
       - name: Test MCP service imports
         run: |
-          python -c "from app.mcp_service.main import app; print('✅ MCP service imports OK')"
+          python -c "from perception_app.mcp_service.main import app; print('✅ MCP service imports OK')"
 
       - name: Validate MCP service can start (--help)
         run: |
-          cd app/mcp_service
+          cd perception_app/mcp_service
           uvicorn main:app --help
 
       - name: Run MCP unit tests (if they exist)
@@ -85,7 +85,7 @@ jobs:
           )
 
           for agent in "${EXPECTED_AGENTS[@]}"; do
-            if [ -f "app/perception_agent/agents/$agent" ]; then
+            if [ -f "perception_app/perception_agent/agents/$agent" ]; then
               echo "✅ Found: $agent"
             else
               echo "❌ Missing: $agent"
@@ -110,7 +110,7 @@ jobs:
           )
 
           for tool in "${EXPECTED_TOOLS[@]}"; do
-            if [ -f "app/perception_agent/tools/$tool" ]; then
+            if [ -f "perception_app/perception_agent/tools/$tool" ]; then
               echo "✅ Found: $tool"
             else
               echo "❌ Missing: $tool"
@@ -122,13 +122,13 @@ jobs:
 
       - name: Compile agent tools (syntax check)
         run: |
-          python -m compileall app/perception_agent/tools -q
+          python -m compileall perception_app/perception_agent/tools -q
 
       - name: Validate agent_engine_app.py exists and compiles
         run: |
-          if [ -f "app/agent_engine_app.py" ]; then
+          if [ -f "perception_app/agent_engine_app.py" ]; then
             echo "✅ agent_engine_app.py exists"
-            python -m compileall app/agent_engine_app.py -q
+            python -m compileall perception_app/agent_engine_app.py -q
             echo "✅ agent_engine_app.py compiles successfully"
           else
             echo "❌ agent_engine_app.py not found"
@@ -137,7 +137,7 @@ jobs:
 
       - name: Test agent_engine_app.py imports
         run: |
-          cd app
+          cd perception_app
           python -c "import agent_engine_app; print('✅ agent_engine_app imports OK')"
 
       - name: Validate YAML syntax (basic)
@@ -148,7 +148,7 @@ jobs:
           import sys
           from pathlib import Path
 
-          agents_dir = Path('app/perception_agent/agents')
+          agents_dir = Path('perception_app/perception_agent/agents')
           for yaml_file in agents_dir.glob('*.yaml'):
               print(f'Validating {yaml_file.name}...')
               try:

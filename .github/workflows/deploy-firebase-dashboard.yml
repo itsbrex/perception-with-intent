@@ -1,17 +1,18 @@
 name: Deploy Firebase Dashboard
 
+# MANUAL ONLY: Requires WIF secrets to be properly configured
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'dashboard/**'
-      - '.github/workflows/deploy-firebase-dashboard.yml'
   workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "deploy" to confirm'
+        required: true
+        default: ''
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'deploy' }}
     permissions:
       contents: read
       id-token: write

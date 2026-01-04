@@ -20,9 +20,6 @@ jobs:
     name: Deploy MCP to Cloud Run
     runs-on: ubuntu-latest
 
-    # Skip if WIF secrets not configured
-    if: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER != '' && secrets.GCP_SERVICE_ACCOUNT_EMAIL != '' }}
-
     env:
       GCP_PROJECT_ID: perception-with-intent
       GCP_REGION: us-central1
@@ -42,7 +39,7 @@ jobs:
           echo "Environment:      ${{ github.event.inputs.environment }}"
           echo "Ingress:          internal-and-cloud-load-balancing"
           echo "Auth:             No unauthenticated access (backend-only)"
-          echo "Source Directory: app/mcp_service/"
+          echo "Source Directory: perception_app/mcp_service/"
           echo "=========================================="
 
       - name: Checkout code
@@ -67,7 +64,7 @@ jobs:
         run: |
           echo "Deploying MCP service to Cloud Run..."
           gcloud run deploy ${{ env.SERVICE_NAME }} \
-            --source app/mcp_service \
+            --source perception_app/mcp_service \
             --region ${{ env.GCP_REGION }} \
             --project ${{ env.GCP_PROJECT_ID }} \
             --platform managed \

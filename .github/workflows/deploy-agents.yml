@@ -1,13 +1,13 @@
 name: Deploy Agents to Vertex AI
 
+# MANUAL ONLY: Requires WIF secrets to be properly configured
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'app/**'
-      - 'infra/**'
-      - '.github/workflows/deploy-agents.yml'
   workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "deploy" to confirm'
+        required: true
+        default: ''
 
 permissions:
   contents: read
@@ -16,6 +16,7 @@ permissions:
 jobs:
   deploy-agents:
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'deploy' }}
     environment: production
 
     steps:
@@ -28,8 +29,8 @@ jobs:
           echo "Region:           us-central1"
           echo "Staging Bucket:   gs://perception-staging"
           echo "Agent Count:      2 (Agent 0, Agent 1)"
-          echo "Agent 0 YAML:     app/perception_agent/agents/agent_0_orchestrator.yaml"
-          echo "Agent 1 YAML:     app/perception_agent/agents/agent_1_source_harvester.yaml"
+          echo "Agent 0 YAML:     perception_app/perception_agent/agents/agent_0_orchestrator.yaml"
+          echo "Agent 1 YAML:     perception_app/perception_agent/agents/agent_1_source_harvester.yaml"
           echo "=========================================="
 
       - name: Checkout code
@@ -38,7 +39,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
@@ -65,7 +66,7 @@ jobs:
             --region=us-central1 \
             --staging_bucket=gs://perception-staging \
             --display_name="Perception Root Orchestrator" \
-            app/perception_agent/agents/agent_0_orchestrator.yaml \
+            perception_app/perception_agent/agents/agent_0_orchestrator.yaml \
             --trace_to_cloud \
             --cpu=2 \
             --memory=2Gi \
@@ -79,7 +80,7 @@ jobs:
             --region=us-central1 \
             --staging_bucket=gs://perception-staging \
             --display_name="Perception Source Harvester" \
-            app/perception_agent/agents/agent_1_source_harvester.yaml \
+            perception_app/perception_agent/agents/agent_1_source_harvester.yaml \
             --trace_to_cloud \
             --cpu=1 \
             --memory=1Gi \
