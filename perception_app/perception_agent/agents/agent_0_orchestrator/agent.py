@@ -80,7 +80,9 @@ def create_app() -> App:
     return app_instance
 
 
-# Module-level app for Agent Engine
+# Module-level exports for ADK
+# ADK's auto-generated agent_engine_app.py expects 'root_agent' and/or 'app'
+root_agent = create_agent()
 app = create_app()
 
 logger.info("Perception Orchestrator app ready for Agent Engine deployment")
