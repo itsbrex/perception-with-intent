@@ -9,7 +9,7 @@ Pattern from bobs-brain: use os.path.dirname(__file__) for reliable paths.
 
 import os
 import logging
-from google.adk.agents import Agent
+from google.adk.agents import config_agent_utils
 from google.adk.apps import App
 
 logging.basicConfig(
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 APP_NAME = os.getenv("APP_NAME", "perception-orchestrator")
 
 
-def create_agent() -> Agent:
+def create_agent():
     """
     Create the agent from root_agent.yaml in the same directory.
     Uses os.path.dirname(__file__) for reliable path resolution.
@@ -29,7 +29,8 @@ def create_agent() -> Agent:
     config_path = os.path.join(os.path.dirname(__file__), "root_agent.yaml")
     logger.info(f"Loading agent config from: {config_path}")
 
-    agent = Agent.from_config_file(config_path)
+    # Use config_agent_utils.from_config (the correct ADK API)
+    agent = config_agent_utils.from_config(config_path)
     logger.info(f"Agent created: {agent.name}")
 
     return agent
