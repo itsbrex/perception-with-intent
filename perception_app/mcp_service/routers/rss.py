@@ -45,6 +45,14 @@ class Article(BaseModel):
     categories: List[str] = Field(default_factory=list)
 
 
+class FeedMetadata(BaseModel):
+    """Feed-level metadata for author tracking."""
+    title: Optional[str] = None  # Feed/blog title
+    link: Optional[str] = None  # Website URL
+    description: Optional[str] = None  # Feed description
+    author: Optional[str] = None  # Feed-level author if available
+
+
 class FetchRSSFeedResponse(BaseModel):
     """Response schema for fetch_rss_feed tool."""
     feed_id: str
@@ -52,6 +60,7 @@ class FetchRSSFeedResponse(BaseModel):
     fetched_at: str  # ISO 8601 timestamp
     article_count: int
     articles: List[Article]
+    feed_metadata: Optional[FeedMetadata] = None  # Feed-level metadata for author tracking
 
 
 class ErrorDetail(BaseModel):
@@ -245,6 +254,16 @@ async def fetch_rss_feed(request: FetchRSSFeedRequest):
             if request.max_items and len(articles) >= request.max_items:
                 break
 
+        # Extract feed-level metadata for author tracking
+        feed_metadata = FeedMetadata()
+        if hasattr(feed, 'feed'):
+            feed_info = feed.feed
+            feed_metadata.title = feed_info.get('title')
+            feed_metadata.link = feed_info.get('link')
+            feed_metadata.description = feed_info.get('description') or feed_info.get('subtitle')
+            author_detail = feed_info.get('author_detail', {})
+            feed_metadata.author = feed_info.get('author') or author_detail.get('name')
+
         # Build response
         end_time = datetime.now(tz=timezone.utc)
         latency_ms = int((end_time - start_time).total_seconds() * 1000)
@@ -254,7 +273,8 @@ async def fetch_rss_feed(request: FetchRSSFeedRequest):
             feed_url=request.feed_url,
             fetched_at=end_time.isoformat(),
             article_count=len(articles),
-            articles=articles
+            articles=articles,
+            feed_metadata=feed_metadata
         )
 
         logger.info(json.dumps({
