@@ -27,6 +27,20 @@
           "order": "DESCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "authors",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "lastPublished",
+          "order": "DESCENDING"
+        }
+      ]
     }
   ],
   "fieldOverrides": []

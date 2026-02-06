@@ -51,6 +51,12 @@ service cloud.firestore {
       allow write: if false; // Written by agents only
     }
 
+    // Authors collection - read-only for authenticated users
+    match /authors/{authorId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Written by agents only
+    }
+
     // Legacy collections (keep for backwards compatibility)
     match /topics_to_monitor/{topicId} {
       allow read: if isSignedIn();

@@ -25,6 +25,7 @@
     ]
   },
   "firestore": {
+    "database": "perception-db",
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   }
