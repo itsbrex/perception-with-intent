@@ -7,6 +7,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-02-06
+
+### Added
+- **Articles Page with Trending** - New home page for the dashboard
+  - Category filter bar (Tech, HN Blogs, SaaS/Dev, Engineering, etc.)
+  - Per-category trending section with score algorithm (relevance + recency + HN points)
+  - HN API integration to fetch and match top 30 stories
+  - Expandable article cards with click-to-expand summaries
+- **HN Popular Blogs Collection** - 92 curated tech blog RSS feeds from Hacker News favorites
+  - Featured filter button with orange styling
+  - Sources include antirez.com, danluu.com, jvns.ca, and more
+- **Author-Focused Dashboard Experience** (#1)
+  - Author discovery from articles
+  - Author tracking and status management
+- **Firebase/Firestore Test Suite** - Configuration validation tests
+- **YAML Feed Configuration** - Load 128 feeds from YAML config instead of CSV
+
+### Changed
+- Dashboard home page now shows Articles feed instead of old Dashboard
+- Article source name now displayed prominently on its own line
+- Login redirects to Articles page (/) instead of Dashboard (/dashboard)
+
+### Fixed
+- Firestore configuration for dashboard (use `perception-db` named database)
+- Auth redirect handling in sources card E2E test
+- ADK deployment issues (19 fixes for Agent Engine compatibility)
+  - Export root_agent for ADK auto-generated agent_engine_app.py
+  - Convert to pure Python agent (remove YAML dependency)
+  - Simplify --adk_app path and use flexible imports
+  - Use config_agent_utils.from_config for agent loading
+- CI/CD workflows (9 fixes)
+  - WIF auth with access token for ADK deployment
+  - Firebase deploy using gcloud access token
+  - Playwright installation in Test & Lint workflow
+
+### Infrastructure
+- **Dashboard:** React + Vite deployed to Firebase Hosting
+- **Feeds:** 128 total sources (92 HN popular + 36 categorized)
+- **CI/CD:** OpenTofu (switched from Terraform)
+
 ## [0.5.0] - 2025-12-31
 
 ### Added
