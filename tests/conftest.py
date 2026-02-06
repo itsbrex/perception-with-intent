@@ -41,6 +41,8 @@ def pytest_configure(config):
     config.addinivalue_line("markers", "slow: Slow running tests")
     config.addinivalue_line("markers", "smoke: Quick smoke tests")
     config.addinivalue_line("markers", "security: Security tests")
+    config.addinivalue_line("markers", "firebase: Firebase/Firestore tests")
+    config.addinivalue_line("markers", "gcp: Google Cloud Platform tests")
 
 
 def pytest_collection_modifyitems(config, items):
@@ -62,6 +64,10 @@ def pytest_collection_modifyitems(config, items):
             item.add_marker(pytest.mark.mcp)
         elif "/agent/" in test_path:
             item.add_marker(pytest.mark.agent)
+        elif "/firebase/" in test_path:
+            item.add_marker(pytest.mark.firebase)
+        elif "/gcp/" in test_path:
+            item.add_marker(pytest.mark.gcp)
 
 
 # =============================================================================

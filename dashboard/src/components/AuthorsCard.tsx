@@ -88,7 +88,7 @@ export default function AuthorsCard() {
   }
 
   return (
-    <div className="card">
+    <div className="card" data-testid="authors-card">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-xl font-bold text-primary">Recent Authors</h3>
         <Link to="/authors" className="text-sm text-zinc-500 hover:text-primary">

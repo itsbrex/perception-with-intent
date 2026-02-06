@@ -81,7 +81,7 @@ export default function TodayBriefCard() {
   }
 
   return (
-    <div className="card">
+    <div className="card" data-testid="brief-card">
       <div className="flex justify-between items-start mb-4">
         <h3 className="text-xl font-bold text-primary">Today's Brief</h3>
         <span className="text-sm text-zinc-500">{brief.date}</span>

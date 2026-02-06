@@ -102,3 +102,79 @@ def slow_network_context(browser: Browser) -> Generator[BrowserContext, None, No
     # This is a placeholder for future implementation
     yield context
     context.close()
+
+
+@pytest.fixture
+def console_error_collector(page: Page) -> Generator[list, None, None]:
+    """
+    Collect all console errors during test.
+
+    Usage:
+        def test_something(page, console_error_collector):
+            page.goto(...)
+            assert len(console_error_collector) == 0
+    """
+    errors: list = []
+
+    def handle_console(msg):
+        if msg.type == "error":
+            errors.append(msg.text)
+
+    page.on("console", handle_console)
+    yield errors
+
+
+@pytest.fixture
+def authenticated_page(page: Page, dashboard_url: str) -> Generator[Page, None, None]:
+    """
+    Page with test user authenticated.
+
+    Requires TEST_USER_EMAIL and TEST_USER_PASSWORD environment variables.
+    Skips test if credentials not available.
+
+    Usage:
+        def test_dashboard(authenticated_page, dashboard_url):
+            # authenticated_page is already logged in
+            authenticated_page.goto(f"{dashboard_url}/dashboard")
+    """
+    email = os.getenv("TEST_USER_EMAIL")
+    password = os.getenv("TEST_USER_PASSWORD")
+
+    if not email or not password:
+        pytest.skip(
+            "TEST_USER_EMAIL and TEST_USER_PASSWORD required for authenticated tests"
+        )
+
+    # Navigate to login
+    page.goto(f"{dashboard_url}/login", wait_until="networkidle")
+
+    # Fill login form
+    email_input = page.locator("input[type='email']")
+    if email_input.count() == 0:
+        email_input = page.locator("input[name='email']")
+
+    if email_input.count() == 0:
+        pytest.skip("Could not find email input on login page")
+
+    email_input.fill(email)
+
+    password_input = page.locator("input[type='password']")
+    password_input.fill(password)
+
+    # Submit form
+    submit_button = page.locator("button[type='submit']")
+    if submit_button.count() == 0:
+        submit_button = page.locator("button:has-text('Sign')")
+    if submit_button.count() == 0:
+        submit_button = page.locator("button:has-text('Log')")
+
+    submit_button.click()
+
+    # Wait for navigation to dashboard
+    try:
+        page.wait_for_url("**/dashboard**", timeout=10000)
+    except Exception:
+        # May have different redirect behavior
+        page.wait_for_timeout(3000)
+
+    yield page

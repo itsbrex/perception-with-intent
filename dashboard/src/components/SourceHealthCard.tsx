@@ -92,7 +92,7 @@ export default function SourceHealthCard() {
   }
 
   return (
-    <div className="card">
+    <div className="card" data-testid="sources-card">
       <h3 className="text-xl font-bold text-primary mb-6">Source Health & Coverage</h3>
 
       {/* Stats Overview */}
