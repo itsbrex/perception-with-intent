@@ -12,6 +12,7 @@ import csv
 import httpx
 import logging
 import json
+import yaml
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -82,6 +83,74 @@ def load_sources_from_csv() -> List[Dict[str, Any]]:
             "severity": "ERROR",
             "tool": "agent_1",
             "operation": "load_sources_from_csv",
+            "error": str(e)
+        }))
+        return []
+
+
+def load_sources_from_yaml() -> List[Dict[str, Any]]:
+    """
+    Load sources from the rss_sources.yaml config file.
+
+    This has 128 verified feeds across 22 categories.
+
+    Returns:
+        List of source dicts with fields:
+        - source_id (generated from name)
+        - name
+        - type (always 'rss')
+        - url
+        - category
+        - enabled
+    """
+    yaml_path = Path(__file__).parent.parent / "config" / "rss_sources.yaml"
+
+    logger.info(json.dumps({
+        "severity": "INFO",
+        "tool": "agent_1",
+        "operation": "load_sources_from_yaml",
+        "yaml_path": str(yaml_path)
+    }))
+
+    sources = []
+    try:
+        with open(yaml_path, 'r') as f:
+            config = yaml.safe_load(f)
+
+        for source in config.get('sources', []):
+            if source.get('active', True):
+                # Generate source_id from name
+                source_id = source['name'].lower().replace(' ', '-').replace('/', '-')
+                sources.append({
+                    'source_id': source_id,
+                    'name': source['name'],
+                    'type': 'rss',
+                    'url': source['url'],
+                    'category': source.get('category', 'general'),
+                    'enabled': True
+                })
+
+        logger.info(json.dumps({
+            "severity": "INFO",
+            "tool": "agent_1",
+            "operation": "load_sources_from_yaml",
+            "sources_loaded": len(sources)
+        }))
+
+        return sources
+    except FileNotFoundError:
+        logger.error(json.dumps({
+            "severity": "ERROR",
+            "tool": "agent_1",
+            "operation": "load_sources_from_yaml",
+            "error": f"YAML file not found: {yaml_path}"
+        }))
+        return []
+    except Exception as e:
+        logger.error(json.dumps({
+            "severity": "ERROR",
+            "tool": "agent_1",
+            "operation": "load_sources_from_yaml",
             "error": str(e)
         }))
         return []
@@ -312,9 +381,11 @@ async def harvest_all_sources(time_window_hours: int = 24, max_items_per_source:
         "max_items_per_source": max_items_per_source
     }))
 
-    # Load sources from CSV (Phase 5)
-    # TODO Phase 6: Replace with load_sources_from_firestore()
-    sources = load_sources_from_csv()
+    # Load sources from YAML config (128 feeds)
+    # Falls back to CSV if YAML fails
+    sources = load_sources_from_yaml()
+    if not sources:
+        sources = load_sources_from_csv()
 
     if not sources:
         logger.warning(json.dumps({
