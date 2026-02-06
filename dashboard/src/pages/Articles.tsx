@@ -250,8 +250,17 @@ function ArticleCard({ article, expanded, onToggle }: {
             </h3>
           </button>
 
+          {/* Source - prominent */}
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-sm font-semibold text-zinc-700">
+              {article.source_name || article.source_id}
+            </span>
+            <span className="text-zinc-300">|</span>
+            <span className="text-sm text-zinc-400">{formatTimeAgo(article.published_at)}</span>
+          </div>
+
           {/* Meta row */}
-          <div className="flex items-center gap-2 mt-1.5 text-sm flex-wrap">
+          <div className="flex items-center gap-2 mt-1 text-sm flex-wrap">
             <span className={`px-2 py-0.5 rounded text-xs font-medium ${category.color}`}>
               {category.name}
             </span>
@@ -261,10 +270,6 @@ function ArticleCard({ article, expanded, onToggle }: {
                 <span className="text-orange-500 font-medium text-xs">▲ {article.hn_points} on HN</span>
               </>
             )}
-            <span className="text-zinc-400">•</span>
-            <span className="text-zinc-500 truncate">{article.source_name || article.source_id}</span>
-            <span className="text-zinc-400">•</span>
-            <span className="text-zinc-400">{formatTimeAgo(article.published_at)}</span>
           </div>
 
           {/* Expanded content */}
