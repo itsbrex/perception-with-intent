@@ -22,7 +22,7 @@ export default function Login() {
       } else {
         await signInWithEmailAndPassword(auth, email, password)
       }
-      navigate('/dashboard')
+      navigate('/')
     } catch (err: any) {
       setError(err.message || 'Authentication failed')
     } finally {
