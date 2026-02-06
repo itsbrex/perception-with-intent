@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from './firebase'
+import Articles from './pages/Articles'
 import Dashboard from './pages/Dashboard'
 import Topics from './pages/Topics'
 import DailyBriefs from './pages/DailyBriefs'
@@ -11,11 +12,11 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 function Navigation() {
   const location = useLocation()
-  const isHome = location.pathname === '/'
   const isLogin = location.pathname === '/login'
+  const isAbout = location.pathname === '/about'
 
-  // Don't show nav on home page or login page
-  if (isHome || isLogin) return null
+  // Don't show nav on login or about (landing) page
+  if (isLogin || isAbout) return null
 
   const handleLogout = async () => {
     try {
@@ -35,14 +36,14 @@ function Navigation() {
               Perception
             </Link>
             <div className="hidden md:flex space-x-6">
+              <Link to="/" className="text-zinc-600 hover:text-primary transition-colors">
+                Feed
+              </Link>
               <Link to="/dashboard" className="text-zinc-600 hover:text-primary transition-colors">
                 Dashboard
               </Link>
-              <Link to="/topics" className="text-zinc-600 hover:text-primary transition-colors">
-                Topics
-              </Link>
               <Link to="/briefs" className="text-zinc-600 hover:text-primary transition-colors">
-                Daily Briefs
+                Briefs
               </Link>
               <Link to="/authors" className="text-zinc-600 hover:text-primary transition-colors">
                 Authors
@@ -72,8 +73,16 @@ function App() {
         {/* Main Content */}
         <main>
           <Routes>
-            <Route path="/" element={<About />} />
+            <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <Articles />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/dashboard"
               element={
