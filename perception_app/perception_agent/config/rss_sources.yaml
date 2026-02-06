@@ -665,3 +665,464 @@ sources:
     url: "https://www.linode.com/blog/feed/"
     category: "infrastructure"
     active: true
+
+  # ===== HN POPULAR BLOGS 2025 (92 feeds) =====
+  - name: "simonwillison.net"
+    url: "https://simonwillison.net/atom/everything/"
+    category: "hn-popular"
+    active: true
+
+  - name: "jeffgeerling.com"
+    url: "https://www.jeffgeerling.com/blog.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "seangoedecke.com"
+    url: "https://www.seangoedecke.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "krebsonsecurity.com"
+    url: "https://krebsonsecurity.com/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "daringfireball.net"
+    url: "https://daringfireball.net/feeds/main"
+    category: "hn-popular"
+    active: true
+
+  - name: "ericmigi.com"
+    url: "https://ericmigi.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "antirez.com"
+    url: "http://antirez.com/rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "idiallo.com"
+    url: "https://idiallo.com/feed.rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "maurycyz.com"
+    url: "https://maurycyz.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "pluralistic.net"
+    url: "https://pluralistic.net/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "shkspr.mobi"
+    url: "https://shkspr.mobi/blog/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "lcamtuf.substack.com"
+    url: "https://lcamtuf.substack.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "mitchellh.com"
+    url: "https://mitchellh.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "dynomight.net"
+    url: "https://dynomight.net/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "utcc.utoronto.ca/~cks"
+    url: "https://utcc.utoronto.ca/~cks/space/blog/?atom"
+    category: "hn-popular"
+    active: true
+
+  - name: "xeiaso.net"
+    url: "https://xeiaso.net/blog.rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "devblogs.microsoft.com/oldnewthing"
+    url: "https://devblogs.microsoft.com/oldnewthing/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "righto.com"
+    url: "https://www.righto.com/feeds/posts/default"
+    category: "hn-popular"
+    active: true
+
+  - name: "lucumr.pocoo.org"
+    url: "https://lucumr.pocoo.org/feed.atom"
+    category: "hn-popular"
+    active: true
+
+  - name: "skyfall.dev"
+    url: "https://skyfall.dev/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "garymarcus.substack.com"
+    url: "https://garymarcus.substack.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "rachelbythebay.com"
+    url: "https://rachelbythebay.com/w/atom.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "overreacted.io"
+    url: "https://overreacted.io/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "timsh.org"
+    url: "https://timsh.org/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "johndcook.com"
+    url: "https://www.johndcook.com/blog/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "gilesthomas.com"
+    url: "https://gilesthomas.com/feed/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "matklad.github.io"
+    url: "https://matklad.github.io/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "derekthompson.org"
+    url: "https://www.theatlantic.com/feed/author/derek-thompson/"
+    category: "hn-popular"
+    active: true
+
+  - name: "evanhahn.com"
+    url: "https://evanhahn.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "terriblesoftware.org"
+    url: "https://terriblesoftware.org/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "rakhim.exotext.com"
+    url: "https://rakhim.exotext.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "joanwestenberg.com"
+    url: "https://joanwestenberg.com/rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "xania.org"
+    url: "https://xania.org/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "micahflee.com"
+    url: "https://micahflee.com/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "nesbitt.io"
+    url: "https://nesbitt.io/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "construction-physics.com"
+    url: "https://www.construction-physics.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "tedium.co"
+    url: "https://feed.tedium.co/"
+    category: "hn-popular"
+    active: true
+
+  - name: "susam.net"
+    url: "https://susam.net/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "entropicthoughts.com"
+    url: "https://entropicthoughts.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "buttondown.com/hillelwayne"
+    url: "https://buttondown.com/hillelwayne/rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "dwarkesh.com"
+    url: "https://www.dwarkeshpatel.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "borretti.me"
+    url: "https://borretti.me/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "wheresyoured.at"
+    url: "https://www.wheresyoured.at/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "jayd.ml"
+    url: "https://jayd.ml/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "minimaxir.com"
+    url: "https://minimaxir.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "geohot.github.io"
+    url: "https://geohot.github.io/blog/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "paulgraham.com"
+    url: "http://www.aaronsw.com/2002/feeds/pgessays.rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "filfre.net"
+    url: "https://www.filfre.net/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "blog.jim-nielsen.com"
+    url: "https://blog.jim-nielsen.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "dfarq.homeip.net"
+    url: "https://dfarq.homeip.net/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "jyn.dev"
+    url: "https://jyn.dev/atom.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "geoffreylitt.com"
+    url: "https://www.geoffreylitt.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "downtowndougbrown.com"
+    url: "https://www.downtowndougbrown.com/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "brutecat.com"
+    url: "https://brutecat.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "eli.thegreenplace.net"
+    url: "https://eli.thegreenplace.net/feeds/all.atom.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "abortretry.fail"
+    url: "https://www.abortretry.fail/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "fabiensanglard.net"
+    url: "https://fabiensanglard.net/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "oldvcr.blogspot.com"
+    url: "https://oldvcr.blogspot.com/feeds/posts/default"
+    category: "hn-popular"
+    active: true
+
+  - name: "bogdanthegeek.github.io"
+    url: "https://bogdanthegeek.github.io/blog/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "hugotunius.se"
+    url: "https://hugotunius.se/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "gwern.net"
+    url: "https://gwern.substack.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "berthub.eu"
+    url: "https://berthub.eu/articles/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "chadnauseam.com"
+    url: "https://chadnauseam.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "simone.org"
+    url: "https://simone.org/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "it-notes.dragas.net"
+    url: "https://it-notes.dragas.net/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "beej.us"
+    url: "https://beej.us/blog/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "hey.paris"
+    url: "https://hey.paris/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "danielwirtz.com"
+    url: "https://danielwirtz.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "matduggan.com"
+    url: "https://matduggan.com/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "refactoringenglish.com"
+    url: "https://refactoringenglish.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "worksonmymachine.substack.com"
+    url: "https://worksonmymachine.substack.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "philiplaine.com"
+    url: "https://philiplaine.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "steveblank.com"
+    url: "https://steveblank.com/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "bernsteinbear.com"
+    url: "https://bernsteinbear.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "danieldelaney.net"
+    url: "https://danieldelaney.net/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "troyhunt.com"
+    url: "https://www.troyhunt.com/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "herman.bearblog.dev"
+    url: "https://herman.bearblog.dev/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "tomrenner.com"
+    url: "https://tomrenner.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "blog.pixelmelt.dev"
+    url: "https://blog.pixelmelt.dev/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "martinalderson.com"
+    url: "https://martinalderson.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "danielchasehooper.com"
+    url: "https://danielchasehooper.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "chiark.greenend.org.uk/~sgtatham"
+    url: "https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "grantslatton.com"
+    url: "https://grantslatton.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "experimental-history.com"
+    url: "https://www.experimental-history.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "anildash.com"
+    url: "https://anildash.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "aresluna.org"
+    url: "https://aresluna.org/main.rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "michael.stapelberg.ch"
+    url: "https://michael.stapelberg.ch/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "miguelgrinberg.com"
+    url: "https://blog.miguelgrinberg.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "keygen.sh"
+    url: "https://keygen.sh/blog/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "mjg59.dreamwidth.org"
+    url: "https://mjg59.dreamwidth.org/data/rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "computer.rip"
+    url: "https://computer.rip/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "tedunangst.com"
+    url: "https://www.tedunangst.com/flak/rss"
+    category: "hn-popular"
+    active: true

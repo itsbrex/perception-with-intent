@@ -107,51 +107,38 @@ async def test_feed_accessible(client: httpx.AsyncClient, feed_url: str, timeout
 # =============================================================================
 
 async def parse_hn_gist(client: httpx.AsyncClient) -> List[Dict[str, Any]]:
-    """Parse HN Blog Popularity Gist."""
-    url = "https://gist.githubusercontent.com/emschwartz/608934c1817ce9b7baf3f5b9186cae6b/raw/hn-blog-popularity.txt"
+    """Parse HN Blog Popularity Gist (OPML format)."""
+    url = "https://gist.githubusercontent.com/emschwartz/e6d2bf860ccc367fe37ff953ba6de66b/raw/hn-popular-blogs-2025.opml"
 
     content = await fetch_url(client, url)
     if not content:
         return []
 
     feeds = []
-    for line in content.strip().split('\n'):
-        line = line.strip()
-        if not line or line.startswith('#'):
-            continue
+    try:
+        import xml.etree.ElementTree as ET
+        root = ET.fromstring(content)
 
-        parts = line.split('\t')
-        if len(parts) >= 2:
-            domain = parts[0].strip()
-            try:
-                score = int(parts[1].strip())
-            except ValueError:
-                score = 0
+        # Find all outline elements with xmlUrl attribute
+        for outline in root.iter('outline'):
+            xml_url = outline.get('xmlUrl')
+            if xml_url:
+                name = outline.get('title') or outline.get('text') or 'Unknown'
+                html_url = outline.get('htmlUrl') or extract_website_url(xml_url)
 
-            # Construct feed URL (common patterns)
-            feed_url = None
-            for pattern in [
-                f"https://{domain}/feed",
-                f"https://{domain}/rss",
-                f"https://{domain}/feed.xml",
-                f"https://{domain}/rss.xml",
-                f"https://{domain}/atom.xml",
-                f"https://{domain}/index.xml",
-            ]:
-                feed_url = pattern
-                break  # We'll test later
-
-            if feed_url:
                 feeds.append({
-                    'name': domain,
-                    'feedUrl': f"https://{domain}/feed",  # Default, will be validated
-                    'websiteUrl': f"https://{domain}",
-                    'categories': ['tech'],
+                    'name': name,
+                    'feedUrl': xml_url,
+                    'websiteUrl': html_url,
+                    'categories': ['tech', 'hn-popular'],
                     'source': 'hn-gist',
-                    'metadata': {'hn_score': score}
+                    'metadata': {'hn_popular': True}
                 })
 
-    logger.info(f"Parsed {len(feeds)} feeds from HN Gist")
+        logger.info(f"Parsed {len(feeds)} feeds from HN Gist (OPML)")
+    except Exception as e:
+        logger.error(f"Error parsing HN Gist OPML: {e}")
+
     return feeds
 
 
