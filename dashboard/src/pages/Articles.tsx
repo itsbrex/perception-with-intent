@@ -448,23 +448,43 @@ export default function Articles() {
       )}
 
       {/* Category filters */}
-      <div className="flex flex-wrap gap-2 mb-6 sticky top-0 bg-white py-3 z-10 border-b border-zinc-100">
-        {CATEGORIES.map((cat) => (
+      <div className="sticky top-0 bg-white py-3 z-10 border-b border-zinc-100 mb-6">
+        {/* Featured: HN Popular Blogs */}
+        <div className="flex items-center gap-3 mb-3">
           <button
-            key={cat.id}
-            onClick={() => setSelectedCategory(cat.id)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
-              selectedCategory === cat.id
-                ? 'bg-zinc-900 text-white'
-                : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+            onClick={() => setSelectedCategory('hn-popular')}
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 ${
+              selectedCategory === 'hn-popular'
+                ? 'bg-orange-500 text-white shadow-md'
+                : 'bg-orange-100 text-orange-700 hover:bg-orange-200 border border-orange-200'
             }`}
           >
-            {cat.name}
-            {selectedCategory === cat.id && articles.length > 0 && (
-              <span className="ml-1.5 text-zinc-400">({articles.length})</span>
-            )}
+            <span className="text-lg">🔥</span>
+            HN Popular Blogs
+            <span className="text-xs opacity-75">(92 sources)</span>
           </button>
-        ))}
+          <span className="text-xs text-zinc-400">Curated tech blogs from Hacker News favorites</span>
+        </div>
+
+        {/* Other categories */}
+        <div className="flex flex-wrap gap-2">
+          {CATEGORIES.filter(cat => cat.id !== 'hn-popular').map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                selectedCategory === cat.id
+                  ? 'bg-zinc-900 text-white'
+                  : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+              }`}
+            >
+              {cat.name}
+              {selectedCategory === cat.id && articles.length > 0 && (
+                <span className="ml-1.5 text-zinc-400">({articles.length})</span>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Loading state */}
