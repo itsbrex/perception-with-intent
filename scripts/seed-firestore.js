@@ -17,6 +17,7 @@ admin.initializeApp({
 });
 
 const db = admin.firestore();
+db.settings({ databaseId: 'perception-db' });
 
 // Load sources from CSV
 function loadSourcesFromCSV() {
