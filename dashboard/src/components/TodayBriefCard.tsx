@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore'
 import { db } from '../firebase'
+import { cleanText } from '../utils/text'
 
 interface Brief {
   id: string
@@ -90,7 +91,7 @@ export default function TodayBriefCard() {
       {/* Executive Summary */}
       <div className="mb-6">
         <h4 className="text-sm font-semibold text-zinc-700 mb-2">Executive Summary</h4>
-        <p className="text-zinc-600 leading-relaxed">{brief.executiveSummary}</p>
+        <p className="text-zinc-600 leading-relaxed">{cleanText(brief.executiveSummary)}</p>
       </div>
 
       {/* Highlights */}
@@ -101,7 +102,7 @@ export default function TodayBriefCard() {
             {brief.highlights.map((highlight, index) => (
               <li key={index} className="flex items-start">
                 <span className="text-primary font-bold mr-2">•</span>
-                <span className="text-zinc-600 flex-1">{highlight}</span>
+                <span className="text-zinc-600 flex-1">{cleanText(highlight)}</span>
               </li>
             ))}
           </ul>

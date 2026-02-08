@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { collection, query, orderBy, limit, getDocs, where } from 'firebase/firestore'
 import { db } from '../firebase'
+import { cleanText, extractHNLink } from '../utils/text'
 
 interface Article {
   id: string
@@ -275,22 +276,37 @@ function ArticleCard({ article, expanded, onToggle }: {
           {/* Expanded content */}
           {expanded && (
             <div className="mt-3 space-y-3">
-              {article.summary && (
+              {article.summary && cleanText(article.summary) && (
                 <p className="text-zinc-600 text-sm leading-relaxed bg-zinc-50 p-3 rounded-lg">
-                  {article.summary}
+                  {cleanText(article.summary)}
                 </p>
               )}
-              <a
-                href={article.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 font-medium"
-              >
-                Read full article
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+              <div className="flex items-center gap-4">
+                <a
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 font-medium"
+                >
+                  Read full article
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                {extractHNLink(article.summary || '') && (
+                  <a
+                    href={extractHNLink(article.summary || '')!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-orange-500 hover:text-orange-700 font-medium"
+                  >
+                    HN Discussion
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </a>
+                )}
+              </div>
             </div>
           )}
         </div>
