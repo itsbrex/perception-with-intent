@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { collection, query, orderBy, limit, getDocs, where } from 'firebase/firestore'
 import { db } from '../firebase'
-import { cleanText, extractHNLink } from '../utils/text'
+import { cleanSummary, extractHNLink } from '../utils/text'
 
 interface Article {
   id: string
@@ -276,9 +276,9 @@ function ArticleCard({ article, expanded, onToggle }: {
           {/* Expanded content */}
           {expanded && (
             <div className="mt-3 space-y-3">
-              {article.summary && cleanText(article.summary) && (
+              {article.summary && cleanSummary(article.summary) && (
                 <p className="text-zinc-600 text-sm leading-relaxed bg-zinc-50 p-3 rounded-lg">
-                  {cleanText(article.summary)}
+                  {cleanSummary(article.summary)}
                 </p>
               )}
               <div className="flex items-center gap-4">

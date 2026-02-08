@@ -35,3 +35,17 @@ export function cleanText(text: string): string {
   clean = stripMarkdownLinks(clean)
   return clean.trim()
 }
+
+// Truncate text to max length with ellipsis
+export function truncate(text: string, maxLength: number = 300): string {
+  if (!text || text.length <= maxLength) return text
+  // Find last space before maxLength to avoid cutting words
+  const truncated = text.slice(0, maxLength)
+  const lastSpace = truncated.lastIndexOf(' ')
+  return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated) + '...'
+}
+
+// Clean and truncate - for summaries
+export function cleanSummary(text: string, maxLength: number = 300): string {
+  return truncate(cleanText(text), maxLength)
+}
