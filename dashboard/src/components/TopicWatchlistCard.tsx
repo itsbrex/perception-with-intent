@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
-import { db, auth } from '../firebase'
+import { db } from '../firebase'
 
 interface Topic {
   id: string
+  keyword?: string
   name?: string
   keywords?: string[]
   category?: string
+  priority?: number
   active?: boolean
   lastUpdated?: { seconds: number }
 }
@@ -19,14 +21,8 @@ export default function TopicWatchlistCard() {
   useEffect(() => {
     const fetchTopics = async () => {
       try {
-        const user = auth.currentUser
-        if (!user) {
-          setError('Not authenticated')
-          setLoading(false)
-          return
-        }
-
-        const topicsRef = collection(db, 'users', user.uid, 'topics')
+        // Fetch global topics from topics_to_monitor
+        const topicsRef = collection(db, 'topics_to_monitor')
         const snapshot = await getDocs(topicsRef)
 
         const topicsList = snapshot.docs.map((doc) => ({
@@ -98,7 +94,7 @@ export default function TopicWatchlistCard() {
             <div className="flex justify-between items-start">
               <div className="flex-1">
                 <h4 className="font-semibold text-zinc-800">
-                  {topic.name || topic.id}
+                  {topic.keyword || topic.name || topic.id}
                 </h4>
                 {topic.keywords && topic.keywords.length > 0 && (
                   <div className="flex flex-wrap gap-1 mt-2">

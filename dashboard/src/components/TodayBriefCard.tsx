@@ -3,11 +3,30 @@ import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore'
 import { db } from '../firebase'
 import { cleanText } from '../utils/text'
 
+interface BriefSection {
+  section_name: string
+  key_points: string[]
+  top_articles: {
+    title: string
+    source_id: string
+    relevance_score: number
+    url: string
+  }[]
+}
+
 interface Brief {
   id: string
   date: string
-  executiveSummary: string
-  highlights: string[]
+  // New format
+  headline?: string
+  sections?: BriefSection[]
+  meta?: {
+    article_count: number
+    section_count: number
+  }
+  // Old format
+  executiveSummary?: string
+  highlights?: string[]
   metrics?: {
     articleCount: number
     topSources?: Record<string, number>
@@ -81,6 +100,83 @@ export default function TodayBriefCard() {
     )
   }
 
+  // Handle new format (sections-based)
+  if (brief.sections && brief.sections.length > 0) {
+    return (
+      <div className="card" data-testid="brief-card">
+        <div className="flex justify-between items-start mb-4">
+          <h3 className="text-xl font-bold text-primary">Today's Brief</h3>
+          <span className="text-sm text-zinc-500">{brief.date}</span>
+        </div>
+
+        {/* Headline */}
+        {brief.headline && (
+          <div className="mb-6">
+            <p className="text-zinc-700 font-medium">{cleanText(brief.headline)}</p>
+          </div>
+        )}
+
+        {/* Sections */}
+        {brief.sections.map((section, idx) => (
+          <div key={idx} className="mb-6">
+            <h4 className="text-sm font-semibold text-zinc-700 mb-3 flex items-center gap-2">
+              <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs">
+                {section.section_name}
+              </span>
+            </h4>
+
+            {/* Key Points */}
+            <ul className="space-y-2 mb-4">
+              {section.key_points.slice(0, 5).map((point, i) => (
+                <li key={i} className="flex items-start">
+                  <span className="text-primary font-bold mr-2">•</span>
+                  <span className="text-zinc-600 flex-1 text-sm">{cleanText(point)}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Top Articles */}
+            {section.top_articles && section.top_articles.length > 0 && (
+              <div className="bg-zinc-50 rounded-lg p-3">
+                <div className="text-xs text-zinc-500 mb-2">Top Stories</div>
+                <div className="space-y-2">
+                  {section.top_articles.slice(0, 3).map((article, i) => (
+                    <a
+                      key={i}
+                      href={article.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-sm text-blue-600 hover:text-blue-800 truncate"
+                    >
+                      {article.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+
+        {/* Meta */}
+        {brief.meta && (
+          <div className="border-t border-zinc-200 pt-4">
+            <div className="flex gap-6">
+              <div>
+                <div className="text-zinc-500 text-xs">Articles</div>
+                <div className="text-xl font-bold text-primary">{brief.meta.article_count}</div>
+              </div>
+              <div>
+                <div className="text-zinc-500 text-xs">Sections</div>
+                <div className="text-xl font-bold text-primary">{brief.meta.section_count}</div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  // Handle old format (executiveSummary-based)
   return (
     <div className="card" data-testid="brief-card">
       <div className="flex justify-between items-start mb-4">
@@ -89,10 +185,12 @@ export default function TodayBriefCard() {
       </div>
 
       {/* Executive Summary */}
-      <div className="mb-6">
-        <h4 className="text-sm font-semibold text-zinc-700 mb-2">Executive Summary</h4>
-        <p className="text-zinc-600 leading-relaxed">{cleanText(brief.executiveSummary)}</p>
-      </div>
+      {brief.executiveSummary && (
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-zinc-700 mb-2">Executive Summary</h4>
+          <p className="text-zinc-600 leading-relaxed">{cleanText(brief.executiveSummary)}</p>
+        </div>
+      )}
 
       {/* Highlights */}
       {brief.highlights && brief.highlights.length > 0 && (
