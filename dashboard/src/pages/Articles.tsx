@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Skeleton, SkeletonArticle } from '@/components/ui/skeleton'
 import { EmptyState, NewspaperIcon } from '@/components/EmptyState'
 import { getRelevanceColor, getCategoryColor } from '@/lib/design-tokens'
+import IngestionButton from '../components/IngestionButton'
 
 interface Article {
   id: string
@@ -451,12 +452,33 @@ export default function Articles() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h1 className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
-          News Feed
-        </h1>
-        <p className="text-muted-foreground mt-1 tabular-nums">
-          {articles.length} articles from {Object.keys(groupedArticles).length} categories
-        </p>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
+              News Feed
+            </h1>
+            <p className="text-muted-foreground mt-1 tabular-nums">
+              {articles.length} articles from {Object.keys(groupedArticles).length} categories
+            </p>
+          </div>
+          <IngestionButton />
+        </div>
+
+        {/* Score Legend */}
+        <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+          <span className="flex items-center gap-1.5">
+            <span className="w-5 h-5 rounded bg-primary/15 text-primary text-[10px] font-semibold flex items-center justify-center">7</span>
+            Relevance (1-10, AI-scored)
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="text-orange-500 font-medium">&#9650; 42</span>
+            HN upvotes (live)
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="font-medium tabular-nums">12 pts</span>
+            Trending (relevance + recency + HN)
+          </span>
+        </div>
       </motion.div>
 
       {/* Trending Section */}

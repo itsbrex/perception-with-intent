@@ -1,0 +1,1128 @@
+# RSS Feed Sources for Perception News Intelligence
+# Generated: 2025-12-29
+# Total: 128 verified active feeds across 22 categories
+# Source: Comprehensive feed testing + GitHub RSS collections + Brex Top 100 SaaS
+
+sources:
+  # ===== SPORTS (4 feeds) =====
+  - name: "CBS Sports"
+    url: "https://www.cbssports.com/rss/headlines"
+    category: "sports"
+    active: true
+
+  - name: "Sporting News"
+    url: "https://www.sportingnews.com/us/rss"
+    category: "sports"
+    active: true
+
+  - name: "The Athletic"
+    url: "https://theathletic.com/feeds/rss/news/"
+    category: "sports"
+    active: true
+
+  - name: "Yahoo Sports"
+    url: "https://sports.yahoo.com/rss/"
+    category: "sports"
+    active: true
+
+  # ===== AUTOMOTIVE - NEWS (6 feeds) =====
+  - name: "The Drive"
+    url: "https://www.thedrive.com/feed"
+    category: "automotive"
+    active: true
+
+  - name: "Car and Driver"
+    url: "https://www.caranddriver.com/rss/all.xml"
+    category: "automotive"
+    active: true
+
+  - name: "Motor1"
+    url: "https://www.motor1.com/rss/news/all/"
+    category: "automotive"
+    active: true
+
+  - name: "Jalopnik"
+    url: "https://jalopnik.com/rss"
+    category: "automotive"
+    active: true
+
+  - name: "Edmunds"
+    url: "https://www.edmunds.com/feeds/rss/articles.xml"
+    category: "automotive"
+    active: true
+
+  - name: "Road & Track"
+    url: "https://www.roadandtrack.com/rss/all.xml"
+    category: "automotive"
+    active: true
+
+  # ===== AUTOMOTIVE - ELECTRIC/EV (4 feeds) =====
+  - name: "InsideEVs"
+    url: "https://insideevs.com/rss/news/all/"
+    category: "ev"
+    active: true
+
+  - name: "CleanTechnica"
+    url: "https://cleantechnica.com/feed/"
+    category: "ev"
+    active: true
+
+  - name: "Electrek"
+    url: "https://electrek.co/feed/"
+    category: "ev"
+    active: true
+
+  - name: "Teslarati"
+    url: "https://www.teslarati.com/feed/"
+    category: "ev"
+    active: true
+
+  # ===== AUTOMOTIVE - TRUCKS/FLEET (5 feeds) =====
+  - name: "Transport Topics"
+    url: "https://www.ttnews.com/rss.xml"
+    category: "trucking"
+    active: true
+
+  - name: "HDT Trucking"
+    url: "https://www.truckinginfo.com/rss"
+    category: "trucking"
+    active: true
+
+  - name: "Truck News"
+    url: "https://www.trucknews.com/feed/"
+    category: "trucking"
+    active: true
+
+  - name: "Overdrive"
+    url: "https://www.overdriveonline.com/feed/"
+    category: "trucking"
+    active: true
+
+  - name: "CCJ Digital"
+    url: "https://www.ccjdigital.com/feed/"
+    category: "trucking"
+    active: true
+
+  # ===== HEAVY EQUIPMENT (5 feeds) =====
+  - name: "Construction Dive"
+    url: "https://www.constructiondive.com/feeds/news/"
+    category: "heavy_equipment"
+    active: true
+
+  - name: "ENR Construction"
+    url: "https://www.enr.com/rss/articles"
+    category: "heavy_equipment"
+    active: true
+
+  - name: "Equipment World"
+    url: "https://www.equipmentworld.com/feed/"
+    category: "heavy_equipment"
+    active: true
+
+  - name: "Compact Equipment"
+    url: "https://compactequip.com/feed/"
+    category: "heavy_equipment"
+    active: true
+
+  - name: "Equipment Journal"
+    url: "https://www.equipmentjournal.com/feed/"
+    category: "heavy_equipment"
+    active: true
+
+  # ===== AI/ML RESEARCH (3 feeds) =====
+  - name: "MIT AI News"
+    url: "https://news.mit.edu/rss/topic/artificial-intelligence2"
+    category: "ai"
+    active: true
+
+  - name: "DeepMind Blog"
+    url: "https://deepmind.com/blog/feed/basic/"
+    category: "ai"
+    active: true
+
+  - name: "Amazon Science"
+    url: "https://www.amazon.science/index.rss"
+    category: "ai"
+    active: true
+
+  # ===== TECH NEWS (10 feeds) =====
+  - name: "TechCrunch"
+    url: "https://techcrunch.com/feed/"
+    category: "tech"
+    active: true
+
+  - name: "The Verge"
+    url: "https://www.theverge.com/rss/index.xml"
+    category: "tech"
+    active: true
+
+  - name: "Hacker News"
+    url: "https://news.ycombinator.com/rss"
+    category: "tech"
+    active: true
+
+  - name: "Ars Technica"
+    url: "https://feeds.arstechnica.com/arstechnica/index"
+    category: "tech"
+    active: true
+
+  - name: "Wired"
+    url: "https://www.wired.com/feed/rss"
+    category: "tech"
+    active: true
+
+  - name: "CNET"
+    url: "https://www.cnet.com/rss/news/"
+    category: "tech"
+    active: true
+
+  - name: "ZDNet"
+    url: "https://www.zdnet.com/news/rss.xml"
+    category: "tech"
+    active: true
+
+  - name: "VentureBeat"
+    url: "https://venturebeat.com/feed/"
+    category: "tech"
+    active: true
+
+  - name: "Tom's Hardware"
+    url: "https://www.tomshardware.com/feeds/all"
+    category: "tech"
+    active: true
+
+  - name: "Engadget"
+    url: "https://www.engadget.com/rss.xml"
+    category: "tech"
+    active: true
+
+  # ===== ENGINEERING BLOGS (7 feeds) =====
+  - name: "Stripe Blog"
+    url: "https://stripe.com/blog/feed.rss"
+    category: "engineering"
+    active: true
+
+  - name: "Spotify Engineering"
+    url: "https://engineering.atspotify.com/feed/"
+    category: "engineering"
+    active: true
+
+  - name: "Discord Blog"
+    url: "https://discord.com/blog/rss.xml"
+    category: "engineering"
+    active: true
+
+  - name: "Slack Engineering"
+    url: "https://slack.engineering/feed/"
+    category: "engineering"
+    active: true
+
+  - name: "GitHub Blog"
+    url: "https://github.blog/feed/"
+    category: "engineering"
+    active: true
+
+  - name: "Cloudflare Blog"
+    url: "https://blog.cloudflare.com/rss/"
+    category: "engineering"
+    active: true
+
+  - name: "Dropbox Tech"
+    url: "https://dropbox.tech/feed"
+    category: "engineering"
+    active: true
+
+  # ===== SECURITY/INFOSEC (4 feeds) =====
+  - name: "Schneier on Security"
+    url: "https://www.schneier.com/blog/atom.xml"
+    category: "security"
+    active: true
+
+  - name: "Krebs on Security"
+    url: "https://krebsonsecurity.com/feed/"
+    category: "security"
+    active: true
+
+  - name: "The Hacker News"
+    url: "https://feeds.feedburner.com/TheHackersNews"
+    category: "security"
+    active: true
+
+  - name: "Dark Reading"
+    url: "https://www.darkreading.com/rss.xml"
+    category: "security"
+    active: true
+
+  # ===== FINANCE/BUSINESS (5 feeds) =====
+  - name: "CNBC"
+    url: "https://www.cnbc.com/id/100003114/device/rss/rss.html"
+    category: "business"
+    active: true
+
+  - name: "Bloomberg"
+    url: "https://feeds.bloomberg.com/markets/news.rss"
+    category: "business"
+    active: true
+
+  - name: "Seeking Alpha"
+    url: "https://seekingalpha.com/feed.xml"
+    category: "business"
+    active: true
+
+  - name: "Financial Times"
+    url: "https://www.ft.com/?format=rss"
+    category: "business"
+    active: true
+
+  - name: "MarketWatch"
+    url: "https://feeds.marketwatch.com/marketwatch/topstories/"
+    category: "business"
+    active: true
+
+  # ===== CRYPTO/WEB3 (6 feeds) =====
+  - name: "Cointelegraph"
+    url: "https://cointelegraph.com/rss"
+    category: "crypto"
+    active: true
+
+  - name: "Decrypt"
+    url: "https://decrypt.co/feed"
+    category: "crypto"
+    active: true
+
+  - name: "The Block"
+    url: "https://www.theblock.co/rss.xml"
+    category: "crypto"
+    active: true
+
+  - name: "Bitcoin Magazine"
+    url: "https://bitcoinmagazine.com/feed"
+    category: "crypto"
+    active: true
+
+  - name: "CoinDesk"
+    url: "https://www.coindesk.com/arc/outboundfeeds/rss/"
+    category: "crypto"
+    active: true
+
+  - name: "Ethereum Blog"
+    url: "https://blog.ethereum.org/feed.xml"
+    category: "crypto"
+    active: true
+
+  # ===== WORLD NEWS (5 feeds) =====
+  - name: "NPR News"
+    url: "https://feeds.npr.org/1001/rss.xml"
+    category: "world"
+    active: true
+
+  - name: "BBC World"
+    url: "https://feeds.bbci.co.uk/news/world/rss.xml"
+    category: "world"
+    active: true
+
+  - name: "Al Jazeera"
+    url: "https://www.aljazeera.com/xml/rss/all.xml"
+    category: "world"
+    active: true
+
+  - name: "Guardian World"
+    url: "https://www.theguardian.com/world/rss"
+    category: "world"
+    active: true
+
+  - name: "NYT World"
+    url: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+    category: "world"
+    active: true
+
+  # ===== SCIENCE (7 feeds) =====
+  - name: "Science Magazine"
+    url: "https://www.science.org/rss/news_current.xml"
+    category: "science"
+    active: true
+
+  - name: "New Scientist"
+    url: "https://www.newscientist.com/feed/home/"
+    category: "science"
+    active: true
+
+  - name: "Nature"
+    url: "https://www.nature.com/nature.rss"
+    category: "science"
+    active: true
+
+  - name: "Science Daily"
+    url: "https://www.sciencedaily.com/rss/all.xml"
+    category: "science"
+    active: true
+
+  - name: "Quanta Magazine"
+    url: "https://www.quantamagazine.org/feed/"
+    category: "science"
+    active: true
+
+  - name: "MIT News"
+    url: "https://news.mit.edu/rss/research"
+    category: "science"
+    active: true
+
+  - name: "NASA"
+    url: "https://www.nasa.gov/rss/dyn/breaking_news.rss"
+    category: "science"
+    active: true
+
+  # ===== REPAIR - ELECTRONICS (6 feeds) =====
+  - name: "Arduino Blog"
+    url: "https://blog.arduino.cc/feed/"
+    category: "repair_electronics"
+    active: true
+
+  - name: "Make Magazine"
+    url: "https://makezine.com/feed/"
+    category: "repair_electronics"
+    active: true
+
+  - name: "Hackaday"
+    url: "https://hackaday.com/feed/"
+    category: "repair_electronics"
+    active: true
+
+  - name: "iFixit"
+    url: "https://www.ifixit.com/News/rss"
+    category: "repair_electronics"
+    active: true
+
+  - name: "Electronics For You"
+    url: "https://www.electronicsforu.com/feed"
+    category: "repair_electronics"
+    active: true
+
+  - name: "Adafruit"
+    url: "https://blog.adafruit.com/feed/"
+    category: "repair_electronics"
+    active: true
+
+  # ===== REPAIR - MARINE/BOATS (2 feeds) =====
+  - name: "Ship Technology"
+    url: "https://www.ship-technology.com/feed/"
+    category: "repair_marine"
+    active: true
+
+  - name: "Marine Log"
+    url: "https://www.marinelog.com/feed/"
+    category: "repair_marine"
+    active: true
+
+  # ===== REPAIR - RV/MOTORHOME (4 feeds) =====
+  - name: "Technomadia"
+    url: "https://www.technomadia.com/feed/"
+    category: "repair_rv"
+    active: true
+
+  - name: "RV Life"
+    url: "https://rvlife.com/feed/"
+    category: "repair_rv"
+    active: true
+
+  - name: "Camping World"
+    url: "https://blog.campingworld.com/feed/"
+    category: "repair_rv"
+    active: true
+
+  - name: "RV Business"
+    url: "https://rvbusiness.com/feed/"
+    category: "repair_rv"
+    active: true
+
+  # ===== REPAIR - MOTORCYCLE (3 feeds) =====
+  - name: "Ultimate Motorcycling"
+    url: "https://ultimatemotorcycling.com/feed/"
+    category: "repair_motorcycle"
+    active: true
+
+  - name: "RideApart"
+    url: "https://www.rideapart.com/rss/articles/all/"
+    category: "repair_motorcycle"
+    active: true
+
+  - name: "Bike EXIF"
+    url: "https://www.bikeexif.com/feed"
+    category: "repair_motorcycle"
+    active: true
+
+  # ===== REPAIR - AGRICULTURAL (3 feeds) =====
+  - name: "Farm Journal"
+    url: "https://www.farmjournal.com/feed/"
+    category: "repair_agricultural"
+    active: true
+
+  - name: "AgDaily"
+    url: "https://www.agdaily.com/feed/"
+    category: "repair_agricultural"
+    active: true
+
+  - name: "Brownfield Ag News"
+    url: "https://brownfieldagnews.com/feed/"
+    category: "repair_agricultural"
+    active: true
+
+  # ===== SAAS/DEVELOPER TOOLS (24 feeds) =====
+  # From Brex Top 100 Fastest-Growing SaaS Companies 2024
+  - name: "Vercel"
+    url: "https://vercel.com/atom"
+    category: "saas_dev"
+    active: true
+
+  - name: "Next.js"
+    url: "https://nextjs.org/feed.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Supabase"
+    url: "https://supabase.com/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "PostHog"
+    url: "https://posthog.com/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Sentry"
+    url: "https://blog.sentry.io/feed.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "LangChain"
+    url: "https://blog.langchain.dev/rss/"
+    category: "saas_dev"
+    active: true
+
+  - name: "Auth0"
+    url: "https://auth0.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Twilio"
+    url: "https://www.twilio.com/blog/feed"
+    category: "saas_dev"
+    active: true
+
+  - name: "Datadog"
+    url: "https://www.datadoghq.com/blog/index.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "MongoDB"
+    url: "https://www.mongodb.com/blog/rss"
+    category: "saas_dev"
+    active: true
+
+  - name: "Airbyte"
+    url: "https://airbyte.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "dbt Labs"
+    url: "https://www.getdbt.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "PlanetScale"
+    url: "https://planetscale.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Neon"
+    url: "https://neon.tech/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Webflow"
+    url: "https://webflow.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Figma"
+    url: "https://www.figma.com/blog/feed/atom.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Loom"
+    url: "https://www.loom.com/blog/feed"
+    category: "saas_dev"
+    active: true
+
+  - name: "HubSpot Marketing"
+    url: "https://blog.hubspot.com/marketing/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Nylas"
+    url: "https://www.nylas.com/blog/feed/"
+    category: "saas_dev"
+    active: true
+
+  - name: "WorkOS"
+    url: "https://workos.com/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Dagster"
+    url: "https://dagster.io/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Weaviate"
+    url: "https://weaviate.io/blog/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "Algolia"
+    url: "https://blog.algolia.com/rss.xml"
+    category: "saas_dev"
+    active: true
+
+  - name: "DigitalOcean Tutorials"
+    url: "https://www.digitalocean.com/community/tutorials/feed"
+    category: "saas_dev"
+    active: true
+
+  # ===== AI/ML COMPANIES (9 feeds) =====
+  - name: "OpenAI"
+    url: "https://openai.com/blog/rss.xml"
+    category: "ai_company"
+    active: true
+
+  - name: "Anthropic News"
+    url: "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml"
+    category: "ai_company"
+    active: true
+
+  - name: "Hugging Face"
+    url: "https://huggingface.co/blog/feed.xml"
+    category: "ai_company"
+    active: true
+
+  - name: "Together AI"
+    url: "https://www.together.ai/blog/rss.xml"
+    category: "ai_company"
+    active: true
+
+  - name: "Cohere"
+    url: "https://txt.cohere.ai/rss/"
+    category: "ai_company"
+    active: true
+
+  # ===== INFRASTRUCTURE/DEVOPS (8 feeds) =====
+  - name: "Docker"
+    url: "https://www.docker.com/blog/feed/"
+    category: "infrastructure"
+    active: true
+
+  - name: "Kubernetes"
+    url: "https://kubernetes.io/feed.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "HashiCorp"
+    url: "https://www.hashicorp.com/blog/feed.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Pulumi"
+    url: "https://www.pulumi.com/blog/rss.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Grafana"
+    url: "https://grafana.com/blog/index.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Prometheus"
+    url: "https://prometheus.io/blog/feed.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Elastic"
+    url: "https://www.elastic.co/blog/feed"
+    category: "infrastructure"
+    active: true
+
+  - name: "Redis"
+    url: "https://redis.com/blog/feed/"
+    category: "infrastructure"
+    active: true
+
+  - name: "GitLab"
+    url: "https://about.gitlab.com/atom.xml"
+    category: "infrastructure"
+    active: true
+
+  - name: "Linode"
+    url: "https://www.linode.com/blog/feed/"
+    category: "infrastructure"
+    active: true
+
+  # ===== HN POPULAR BLOGS 2025 (92 feeds) =====
+  - name: "simonwillison.net"
+    url: "https://simonwillison.net/atom/everything/"
+    category: "hn-popular"
+    active: true
+
+  - name: "jeffgeerling.com"
+    url: "https://www.jeffgeerling.com/blog.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "seangoedecke.com"
+    url: "https://www.seangoedecke.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "krebsonsecurity.com"
+    url: "https://krebsonsecurity.com/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "daringfireball.net"
+    url: "https://daringfireball.net/feeds/main"
+    category: "hn-popular"
+    active: true
+
+  - name: "ericmigi.com"
+    url: "https://ericmigi.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "antirez.com"
+    url: "http://antirez.com/rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "idiallo.com"
+    url: "https://idiallo.com/feed.rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "maurycyz.com"
+    url: "https://maurycyz.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "pluralistic.net"
+    url: "https://pluralistic.net/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "shkspr.mobi"
+    url: "https://shkspr.mobi/blog/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "lcamtuf.substack.com"
+    url: "https://lcamtuf.substack.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "mitchellh.com"
+    url: "https://mitchellh.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "dynomight.net"
+    url: "https://dynomight.net/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "utcc.utoronto.ca/~cks"
+    url: "https://utcc.utoronto.ca/~cks/space/blog/?atom"
+    category: "hn-popular"
+    active: true
+
+  - name: "xeiaso.net"
+    url: "https://xeiaso.net/blog.rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "devblogs.microsoft.com/oldnewthing"
+    url: "https://devblogs.microsoft.com/oldnewthing/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "righto.com"
+    url: "https://www.righto.com/feeds/posts/default"
+    category: "hn-popular"
+    active: true
+
+  - name: "lucumr.pocoo.org"
+    url: "https://lucumr.pocoo.org/feed.atom"
+    category: "hn-popular"
+    active: true
+
+  - name: "skyfall.dev"
+    url: "https://skyfall.dev/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "garymarcus.substack.com"
+    url: "https://garymarcus.substack.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "rachelbythebay.com"
+    url: "https://rachelbythebay.com/w/atom.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "overreacted.io"
+    url: "https://overreacted.io/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "timsh.org"
+    url: "https://timsh.org/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "johndcook.com"
+    url: "https://www.johndcook.com/blog/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "gilesthomas.com"
+    url: "https://gilesthomas.com/feed/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "matklad.github.io"
+    url: "https://matklad.github.io/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "derekthompson.org"
+    url: "https://www.theatlantic.com/feed/author/derek-thompson/"
+    category: "hn-popular"
+    active: true
+
+  - name: "evanhahn.com"
+    url: "https://evanhahn.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "terriblesoftware.org"
+    url: "https://terriblesoftware.org/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "rakhim.exotext.com"
+    url: "https://rakhim.exotext.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "joanwestenberg.com"
+    url: "https://joanwestenberg.com/rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "xania.org"
+    url: "https://xania.org/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "micahflee.com"
+    url: "https://micahflee.com/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "nesbitt.io"
+    url: "https://nesbitt.io/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "construction-physics.com"
+    url: "https://www.construction-physics.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "tedium.co"
+    url: "https://feed.tedium.co/"
+    category: "hn-popular"
+    active: true
+
+  - name: "susam.net"
+    url: "https://susam.net/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "entropicthoughts.com"
+    url: "https://entropicthoughts.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "buttondown.com/hillelwayne"
+    url: "https://buttondown.com/hillelwayne/rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "dwarkesh.com"
+    url: "https://www.dwarkeshpatel.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "borretti.me"
+    url: "https://borretti.me/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "wheresyoured.at"
+    url: "https://www.wheresyoured.at/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "jayd.ml"
+    url: "https://jayd.ml/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "minimaxir.com"
+    url: "https://minimaxir.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "geohot.github.io"
+    url: "https://geohot.github.io/blog/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "paulgraham.com"
+    url: "http://www.aaronsw.com/2002/feeds/pgessays.rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "filfre.net"
+    url: "https://www.filfre.net/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "blog.jim-nielsen.com"
+    url: "https://blog.jim-nielsen.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "dfarq.homeip.net"
+    url: "https://dfarq.homeip.net/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "jyn.dev"
+    url: "https://jyn.dev/atom.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "geoffreylitt.com"
+    url: "https://www.geoffreylitt.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "downtowndougbrown.com"
+    url: "https://www.downtowndougbrown.com/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "brutecat.com"
+    url: "https://brutecat.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "eli.thegreenplace.net"
+    url: "https://eli.thegreenplace.net/feeds/all.atom.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "abortretry.fail"
+    url: "https://www.abortretry.fail/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "fabiensanglard.net"
+    url: "https://fabiensanglard.net/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "oldvcr.blogspot.com"
+    url: "https://oldvcr.blogspot.com/feeds/posts/default"
+    category: "hn-popular"
+    active: true
+
+  - name: "bogdanthegeek.github.io"
+    url: "https://bogdanthegeek.github.io/blog/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "hugotunius.se"
+    url: "https://hugotunius.se/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "gwern.net"
+    url: "https://gwern.substack.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "berthub.eu"
+    url: "https://berthub.eu/articles/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "chadnauseam.com"
+    url: "https://chadnauseam.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "simone.org"
+    url: "https://simone.org/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "it-notes.dragas.net"
+    url: "https://it-notes.dragas.net/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "beej.us"
+    url: "https://beej.us/blog/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "hey.paris"
+    url: "https://hey.paris/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "danielwirtz.com"
+    url: "https://danielwirtz.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "matduggan.com"
+    url: "https://matduggan.com/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "refactoringenglish.com"
+    url: "https://refactoringenglish.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "worksonmymachine.substack.com"
+    url: "https://worksonmymachine.substack.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "philiplaine.com"
+    url: "https://philiplaine.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "steveblank.com"
+    url: "https://steveblank.com/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "bernsteinbear.com"
+    url: "https://bernsteinbear.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "danieldelaney.net"
+    url: "https://danieldelaney.net/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "troyhunt.com"
+    url: "https://www.troyhunt.com/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "herman.bearblog.dev"
+    url: "https://herman.bearblog.dev/feed/"
+    category: "hn-popular"
+    active: true
+
+  - name: "tomrenner.com"
+    url: "https://tomrenner.com/index.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "blog.pixelmelt.dev"
+    url: "https://blog.pixelmelt.dev/rss/"
+    category: "hn-popular"
+    active: true
+
+  - name: "martinalderson.com"
+    url: "https://martinalderson.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "danielchasehooper.com"
+    url: "https://danielchasehooper.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "chiark.greenend.org.uk/~sgtatham"
+    url: "https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "grantslatton.com"
+    url: "https://grantslatton.com/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "experimental-history.com"
+    url: "https://www.experimental-history.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "anildash.com"
+    url: "https://anildash.com/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "aresluna.org"
+    url: "https://aresluna.org/main.rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "michael.stapelberg.ch"
+    url: "https://michael.stapelberg.ch/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "miguelgrinberg.com"
+    url: "https://blog.miguelgrinberg.com/feed"
+    category: "hn-popular"
+    active: true
+
+  - name: "keygen.sh"
+    url: "https://keygen.sh/blog/feed.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "mjg59.dreamwidth.org"
+    url: "https://mjg59.dreamwidth.org/data/rss"
+    category: "hn-popular"
+    active: true
+
+  - name: "computer.rip"
+    url: "https://computer.rip/rss.xml"
+    category: "hn-popular"
+    active: true
+
+  - name: "tedunangst.com"
+    url: "https://www.tedunangst.com/flak/rss"
+    category: "hn-popular"
+    active: true

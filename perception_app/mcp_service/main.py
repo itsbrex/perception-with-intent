@@ -26,13 +26,10 @@ from fastapi.middleware.cors import CORSMiddleware
 # from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 
 # Import routers (created in next step)
-from routers import rss, api, webpage, storage, briefs, logging as log_router, notifications
+from routers import rss, api, webpage, storage, briefs, logging as log_router, notifications, trigger
 
 # Configure structured logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(message)s'  # JSON logs, no need for text formatting
-)
+logging.basicConfig(level=logging.INFO, format="%(message)s")  # JSON logs, no need for text formatting
 logger = logging.getLogger(__name__)
 
 # FastAPI app
@@ -41,7 +38,7 @@ app = FastAPI(
     description="Model Context Protocol tools for Perception agents",
     version="1.0.0",
     docs_url="/docs",
-    redoc_url="/redoc"
+    redoc_url="/redoc",
 )
 
 # CORS middleware (for local development)
@@ -67,7 +64,7 @@ async def health_check():
         "status": "healthy",
         "service": "mcp-service",
         "version": "1.0.0",
-        "timestamp": datetime.now(tz=timezone.utc).isoformat()
+        "timestamp": datetime.now(tz=timezone.utc).isoformat(),
     }
 
 
@@ -88,8 +85,9 @@ async def root():
             "/mcp/tools/store_articles",
             "/mcp/tools/generate_brief",
             "/mcp/tools/log_ingestion_run",
-            "/mcp/tools/send_notification"
-        ]
+            "/mcp/tools/send_notification",
+        ],
+        "triggers": ["/trigger/ingestion"],
     }
 
 
@@ -101,6 +99,7 @@ app.include_router(storage.router, prefix="/mcp/tools", tags=["Storage Tools"])
 app.include_router(briefs.router, prefix="/mcp/tools", tags=["Brief Generation Tools"])
 app.include_router(log_router.router, prefix="/mcp/tools", tags=["Logging Tools"])
 app.include_router(notifications.router, prefix="/mcp/tools", tags=["Notification Tools"])
+app.include_router(trigger.router, prefix="/trigger", tags=["Trigger"])
 
 
 # Global exception handler
@@ -109,13 +108,17 @@ async def global_exception_handler(request: Request, exc: Exception):
     """
     Catch all unhandled exceptions and return structured error response.
     """
-    logger.error(json.dumps({
-        "severity": "ERROR",
-        "message": "Unhandled exception",
-        "error": str(exc),
-        "path": request.url.path,
-        "method": request.method
-    }))
+    logger.error(
+        json.dumps(
+            {
+                "severity": "ERROR",
+                "message": "Unhandled exception",
+                "error": str(exc),
+                "path": request.url.path,
+                "method": request.method,
+            }
+        )
+    )
 
     return JSONResponse(
         status_code=500,
@@ -123,9 +126,9 @@ async def global_exception_handler(request: Request, exc: Exception):
             "error": {
                 "code": "INTERNAL_SERVER_ERROR",
                 "message": "An unexpected error occurred",
-                "details": {"exception": str(exc)}
+                "details": {"exception": str(exc)},
             }
-        }
+        },
     )
 
 
@@ -138,13 +141,17 @@ async def log_requests(request: Request, call_next):
     start_time = datetime.now(tz=timezone.utc)
 
     # Log request
-    logger.info(json.dumps({
-        "severity": "INFO",
-        "message": "Incoming request",
-        "method": request.method,
-        "path": request.url.path,
-        "client_ip": request.client.host if request.client else "unknown"
-    }))
+    logger.info(
+        json.dumps(
+            {
+                "severity": "INFO",
+                "message": "Incoming request",
+                "method": request.method,
+                "path": request.url.path,
+                "client_ip": request.client.host if request.client else "unknown",
+            }
+        )
+    )
 
     # Process request
     response = await call_next(request)
@@ -154,24 +161,23 @@ async def log_requests(request: Request, call_next):
     latency_ms = int((end_time - start_time).total_seconds() * 1000)
 
     # Log response
-    logger.info(json.dumps({
-        "severity": "INFO",
-        "message": "Request completed",
-        "method": request.method,
-        "path": request.url.path,
-        "status_code": response.status_code,
-        "latency_ms": latency_ms
-    }))
+    logger.info(
+        json.dumps(
+            {
+                "severity": "INFO",
+                "message": "Request completed",
+                "method": request.method,
+                "path": request.url.path,
+                "status_code": response.status_code,
+                "latency_ms": latency_ms,
+            }
+        )
+    )
 
     return response
 
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=8080,
-        reload=True,
-        log_level="info"
-    )
+
+    uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True, log_level="info")
