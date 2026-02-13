@@ -45,7 +45,7 @@ export default function Dashboard() {
       const response = await fetch(`${MCP_URL}/mcp/tools/fetch_rss_feed`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ feed_id: 'hackernews' })
+        body: JSON.stringify({ feed_url: 'https://news.ycombinator.com/rss', time_window_hours: 24, max_items: 50 })
       })
 
       if (response.ok) {

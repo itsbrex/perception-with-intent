@@ -132,7 +132,7 @@ curl https://perception-mcp-w53xszfqnq-uc.a.run.app/health
 
 curl -X POST https://perception-mcp-w53xszfqnq-uc.a.run.app/mcp/tools/fetch_rss_feed \
   -H "Content-Type: application/json" \
-  -d '{"feed_id": "hackernews"}'
+  -d '{"feed_url": "https://news.ycombinator.com/rss", "max_items": 10}'
 ```
 
 ## Project Structure
