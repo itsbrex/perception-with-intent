@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton, SkeletonArticle } from '@/components/ui/skeleton'
 import { EmptyState, NewspaperIcon } from '@/components/EmptyState'
-import { getRelevanceColor, getCategoryColor } from '@/lib/design-tokens'
+import { getCategoryColor } from '@/lib/design-tokens'
 import IngestionButton from '../components/IngestionButton'
 
 interface Article {
@@ -21,7 +21,6 @@ interface Article {
   published_at: string
   relevance_score: number
   hn_points?: number
-  trending_score?: number
 }
 
 interface HNStory {
@@ -30,16 +29,6 @@ interface HNStory {
   url?: string
   score: number
   descendants: number
-}
-
-function calculateTrendingScore(article: Article): number {
-  const now = new Date()
-  const published = new Date(article.published_at)
-  const hoursAgo = (now.getTime() - published.getTime()) / (1000 * 60 * 60)
-  const recencyBoost = Math.max(0, 5 - (hoursAgo / 5))
-  const baseScore = article.relevance_score || 0
-  const hnBoost = article.hn_points ? Math.min(5, article.hn_points / 100) : 0
-  return baseScore + recencyBoost + hnBoost
 }
 
 async function fetchHNTopStories(): Promise<Map<string, HNStory>> {
@@ -77,121 +66,6 @@ const CATEGORIES = [
   { id: 'world', name: 'World' },
 ]
 
-// Trending section component
-function TrendingSection({
-  articles,
-  onArticleClick
-}: {
-  articles: Article[]
-  onArticleClick: (url: string) => void
-}) {
-  const trendingByCategory = articles.reduce((acc, article) => {
-    const cat = article.category || 'other'
-    if (!acc[cat]) acc[cat] = []
-    acc[cat].push(article)
-    return acc
-  }, {} as Record<string, Article[]>)
-
-  Object.keys(trendingByCategory).forEach(cat => {
-    trendingByCategory[cat] = trendingByCategory[cat]
-      .sort((a, b) => (b.trending_score || 0) - (a.trending_score || 0))
-      .slice(0, 3)
-  })
-
-  const sortedCategories = Object.entries(trendingByCategory)
-    .filter(([_, articles]) => articles.length > 0)
-    .sort((a, b) => {
-      const maxA = Math.max(...a[1].map(x => x.trending_score || 0))
-      const maxB = Math.max(...b[1].map(x => x.trending_score || 0))
-      return maxB - maxA
-    })
-    .slice(0, 4)
-
-  const categoryNames: Record<string, string> = {
-    'tech': 'Tech',
-    'hn-popular': 'HN Blogs',
-    'saas_dev': 'SaaS/Dev',
-    'engineering': 'Engineering',
-    'infrastructure': 'Infra',
-    'science': 'Science',
-    'crypto': 'Crypto',
-    'sports': 'Sports',
-    'automotive': 'Auto',
-    'world': 'World',
-  }
-
-  if (sortedCategories.length === 0) return null
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="mb-8"
-    >
-      <div className="flex items-center gap-2 mb-4">
-        <span className="text-xl">🔥</span>
-        <h2 className="text-lg font-semibold text-foreground">Trending Now</h2>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {sortedCategories.map(([category, categoryArticles], idx) => (
-          <motion.div
-            key={category}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.05 }}
-          >
-            <Card className="h-full border-l-4 border-l-primary/50">
-              <CardContent className="p-4">
-                <h3 className="font-medium text-muted-foreground text-sm mb-3">
-                  {categoryNames[category] || category}
-                </h3>
-                <div className="space-y-3">
-                  {categoryArticles.map((article, articleIdx) => (
-                    <a
-                      key={article.id}
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        onArticleClick(article.url)
-                        window.open(article.url, '_blank')
-                      }}
-                      className="block group"
-                    >
-                      <div className="flex items-start gap-2">
-                        <span className="text-muted-foreground text-sm font-medium w-4 tabular-nums">
-                          {articleIdx + 1}
-                        </span>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm text-foreground group-hover:text-primary line-clamp-2 leading-snug transition-colors">
-                            {article.title}
-                          </p>
-                          <div className="flex items-center gap-2 mt-1">
-                            {article.hn_points && (
-                              <span className="text-xs text-orange-500 dark:text-orange-400 font-medium tabular-nums">
-                                ▲ {article.hn_points}
-                              </span>
-                            )}
-                            <span className="text-xs text-muted-foreground tabular-nums">
-                              {Math.round(article.trending_score || 0)} pts
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  )
-}
-
 function formatTimeAgo(dateString: string): string {
   const date = new Date(dateString)
   const now = new Date()
@@ -217,9 +91,9 @@ function ArticleCard({ article, expanded, onToggle }: {
       className="border-b border-border py-4 last:border-0"
     >
       <div className="flex items-start gap-3">
-        {/* Score indicator */}
-        <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-semibold shrink-0 ${getRelevanceColor(article.relevance_score)}`}>
-          {article.relevance_score}
+        {/* Time indicator */}
+        <div className="w-auto px-2 h-8 rounded-lg flex items-center justify-center text-xs font-medium shrink-0 bg-muted text-muted-foreground tabular-nums">
+          {formatTimeAgo(article.published_at)}
         </div>
 
         <div className="flex-1 min-w-0">
@@ -336,51 +210,22 @@ function ArticlesSkeleton() {
 
 export default function Articles() {
   const [articles, setArticles] = useState<Article[]>([])
-  const [allArticles, setAllArticles] = useState<Article[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [hnStories, setHnStories] = useState<Map<string, HNStory>>(new Map())
+  const [refreshKey, setRefreshKey] = useState(0)
 
   useEffect(() => {
     fetchHNTopStories().then(setHnStories)
   }, [])
 
   useEffect(() => {
-    const fetchAllArticles = async () => {
-      try {
-        const articlesRef = collection(db, 'articles')
-        const q = query(
-          articlesRef,
-          orderBy('relevance_score', 'desc'),
-          orderBy('published_at', 'desc'),
-          limit(200)
-        )
-        const snapshot = await getDocs(q)
-        const fetched: Article[] = []
-        snapshot.forEach((doc) => {
-          fetched.push({ id: doc.id, ...doc.data() } as Article)
-        })
-        setAllArticles(fetched)
-      } catch (err) {
-        console.error('Error fetching all articles:', err)
-      }
-    }
-    fetchAllArticles()
+    const handler = () => setRefreshKey(k => k + 1)
+    window.addEventListener('ingestion-complete', handler)
+    return () => window.removeEventListener('ingestion-complete', handler)
   }, [])
-
-  const articlesWithTrending = allArticles.map(article => {
-    const hnStory = hnStories.get(article.url)
-    const articleWithHN = {
-      ...article,
-      hn_points: hnStory?.score,
-    }
-    return {
-      ...articleWithHN,
-      trending_score: calculateTrendingScore(articleWithHN)
-    }
-  })
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -394,7 +239,6 @@ export default function Articles() {
         if (selectedCategory === 'all') {
           q = query(
             articlesRef,
-            orderBy('relevance_score', 'desc'),
             orderBy('published_at', 'desc'),
             limit(100)
           )
@@ -417,7 +261,6 @@ export default function Articles() {
           if (hnStory) {
             article.hn_points = hnStory.score
           }
-          article.trending_score = calculateTrendingScore(article)
           fetchedArticles.push(article)
         })
 
@@ -431,7 +274,7 @@ export default function Articles() {
     }
 
     fetchArticles()
-  }, [selectedCategory, hnStories])
+  }, [selectedCategory, hnStories, refreshKey])
 
   const groupedArticles = articles.reduce((acc, article) => {
     const cat = article.category || 'other'
@@ -464,30 +307,7 @@ export default function Articles() {
           <IngestionButton />
         </div>
 
-        {/* Score Legend */}
-        <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-          <span className="flex items-center gap-1.5">
-            <span className="w-5 h-5 rounded bg-primary/15 text-primary text-[10px] font-semibold flex items-center justify-center">7</span>
-            Relevance (1-10, AI-scored)
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="text-orange-500 font-medium">&#9650; 42</span>
-            HN upvotes (live)
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="font-medium tabular-nums">12 pts</span>
-            Trending (relevance + recency + HN)
-          </span>
-        </div>
       </motion.div>
-
-      {/* Trending Section */}
-      {!loading && articlesWithTrending.length > 0 && (
-        <TrendingSection
-          articles={articlesWithTrending}
-          onArticleClick={(url) => console.log('Clicked:', url)}
-        />
-      )}
 
       {/* Category filters */}
       <div className="sticky top-16 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-3 z-10 border-b border-border mb-6 -mx-4 px-4">
