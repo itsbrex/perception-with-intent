@@ -201,13 +201,12 @@ class TestDashboardQueries:
                 )
             raise
 
-    def test_articles_by_relevance_query(self, firestore_db, skip_without_gcp_auth):
+    def test_articles_by_newest_query(self, firestore_db, skip_without_gcp_auth):
         """
-        Articles sorted by relevance (used in recommendations).
+        Articles sorted by newest first (primary feed ordering).
 
         Query:
             collection('articles')
-            .orderBy('relevance_score', 'desc')
             .orderBy('published_at', 'desc')
             .limit(20)
         """
@@ -215,7 +214,6 @@ class TestDashboardQueries:
 
         query = (
             firestore_db.collection("articles")
-            .order_by("relevance_score", direction=Query.DESCENDING)
             .order_by("published_at", direction=Query.DESCENDING)
             .limit(20)
         )
@@ -225,8 +223,8 @@ class TestDashboardQueries:
         except Exception as e:
             if "index" in str(e).lower():
                 pytest.fail(
-                    f"Articles relevance query missing index: {e}\n"
-                    "Add composite index: articles(relevance_score DESC, published_at DESC)"
+                    f"Articles newest query missing index: {e}\n"
+                    "Single-field orderBy shouldn't need composite index"
                 )
             elif "permission" in str(e).lower():
                 pytest.fail(f"Articles query permission denied: {e}")
