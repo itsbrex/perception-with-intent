@@ -37,9 +37,7 @@ jobs:
         run: |
           pytest tests/unit/ tests/api/ tests/mcp/ tests/agent/ tests/security/ \
             -v --tb=short --no-cov \
-            --ignore=tests/unit/test_bulk_scenarios.py \
-            --ignore=tests/unit/test_parametrized_rss.py \
-            --ignore=tests/unit/test_parametrized_data_validation.py
+            --ignore=tests/unit/test_bulk_scenarios.py
 
       - name: Run E2E tests
         run: |
